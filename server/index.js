@@ -21,7 +21,12 @@ console.log('listening to port 3000...');
 app.listen(3000);
 
 // mongoose.connect('mongodb://localhost/transcoster');
-mongoose.connect(config.database);
+if (config.nodeEnv == 'production') {
+  var connectionString = config.database;
+} else {
+  var connectionString = 'mongodb://localhost/transcoster';
+}
+mongoose.connect(connectionString);
 mongoose.connection.once('open', function() {
   console.log('########### db opened ###########');
   _.each(app.models, function(schema, model) {
