@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var UserSchema = new mongoose.Schema({
-  account_id: {
+  user_id: {
     type: String,
     required: true,
     unique: true
@@ -26,7 +26,7 @@ module.exports = UserSchema;
 
 // {
 //     "_id": ObjectID(),
-//     "account_id": "111111",
+//     "user_id": "111111",
 //     "name": "中嶋　信哉",
 //     "password": "555555",
 //     "created_at": ISODate(),

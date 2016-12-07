@@ -1,0 +1,206 @@
+* {
+  /*outline: 1px solid red;*/
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #333;
+}
+
+.app {
+  width: 100%;
+  height: 800px;
+}
+
+.side-menu {
+  height: 800px;
+  background-color: #333;
+  float: left;
+  padding: 0;
+}
+
+.side-menu .container {
+  width: 100%;
+  text-align: center;
+}
+
+.side-menu .header {
+  background-color: #000;
+  height: 50px;
+}
+
+.side-menu .header .logo {
+  width: 48px;
+  height: 48px;
+}
+
+.side-menu .year {
+  padding: 10px 0;
+  color: rgb(7, 213, 170);
+  font-size: 20px;
+}
+
+.prev-year {
+  text-align: right;
+  padding: 0;
+}
+
+.prev-year a {
+  text-decoration: none;
+  color: rgb(190, 198, 45);
+}
+
+.next-year {
+  text-align: left;
+  padding: 0;
+  color: #888
+}
+
+.side-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.side-menu ul li {
+  margin:  10px 0;
+  color: #fff;
+  letter-spacing: 1.3px;
+  font-size: 18px;
+}
+
+.month, .month-status {
+  width: 45%;
+  display: inline-block;
+}
+
+.month-status {
+  padding-left: 20%;
+}
+
+.status-applied {
+  width: 20px;
+  height: 20px;
+  color: #333;
+  background-color: #449d44;
+  border-radius: 2px;
+}
+
+.status-unapplied {
+  width: 20px;
+  height: 20px;
+  color: #333;
+  background-color: #fff;
+  border-radius: 2px;
+  padding-top: 1px;
+}
+
+.status-unapplied>div {
+  border: 2px solid #888;
+  margin: 2px;
+  width: 80%;
+  height: 80%;
+}
+
+.main {
+  padding: 0;
+  float: left;
+  height: 800px;
+  background-color: #fff;
+}
+
+.main .container {
+  width: 100%;
+}
+
+.main .header {
+  height: 50px;
+  border: 1px solid #666
+}
+
+.system-title {
+  margin: 0;
+  font-size: 24px;
+  padding: 5px 0;
+}
+
+.application {
+  background-color: #ccc;
+  padding: 20px;
+  border: 1px solid #888
+}
+
+.application .container {
+  background-color: #fff;
+}
+
+.application-header {
+  height: 70px;
+  border-bottom: 1px solid #ccc;
+}
+
+.target-month {
+  color: #888;
+  font-size: 30px;
+  padding-top: 25px;
+  text-align: left;
+}
+
+.add-area {
+  padding-top: 25px;
+  text-align: right;
+}
+
+.btn-add, .btn-add:hover, .btn-add:focus, .btn-add:visited {
+  color: #fff;
+  text-decoration: none;
+}
+
+.btn-add {
+  color: #fff;
+  text-decoration: none;
+  padding: 15px;
+  background-color: #1bf7e4;
+  border: 1px solid #ccc;
+  border-radius: 50px;
+  box-shadow: 0 3px 10px #888;
+}
+
+.btn-add:hover {
+  background-color: rgb(242, 111, 233);
+}
+
+.application-body {
+}
+
+.date-row {
+  margin: 20px 0;
+}
+
+.target-date {
+  color: rgb(45, 141, 237);
+  text-align: right;
+  font-size: 20px;
+}
+
+.daily-total {
+  text-align: right;
+  color: rgb(18, 167, 78);
+}
+
+.application-list {
+  margin: 5px 0;
+  line-height: 50px;
+  border: 1px solid #888;
+}
+
+.application-list .fee {
+  text-align: right;
+}
+
+.application-footer {
+  text-align: right;
+  padding: 20px;
+}

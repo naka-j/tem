@@ -17,8 +17,14 @@ module.exports = function(app, route) {
 
     jwt.verify(token, app.get('secretKey'), function(err, decoded) {
       if (err) {
+        if (err.name == 'TokenExpiredError') {
+          return res.status(401).send({
+            success: false,
+            message: 'Token expired'
+          });
+        }
         console.log(err);
-        return res.json({
+        return res.status(401).send({
           success: false,
           message: 'Invalid token'
         });

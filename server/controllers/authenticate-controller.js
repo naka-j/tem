@@ -6,9 +6,11 @@ var jwt = require('jsonwebtoken');
 module.exports = function(app, route) {
   router.route('/')
     .post(function(req, res) {
+      console.log(req);
+      console.log('!!!!!!!!!authenticate!!!!!!!!! params -> ' + req.body.user_id);
       var User = mongoose.model('user');
-      // User.findOne({account_id: req.query.account_id}, function(error, user) {
-      User.findOne({account_id: req.body.account_id}, function(error, user) {
+      // User.findOne({user_id: req.query.user_id}, function(error, user) {
+      User.findOne({user_id: req.body.user_id}, function(error, user) {
         if (error) {
           throw error;
         }
@@ -33,7 +35,7 @@ module.exports = function(app, route) {
 
         // when valid -> create token
         var token = jwt.sign(user, app.get('secretKey'), {
-          expiresIn: '24h'
+          expiresIn: '300s'
         });
 
         res.json({
