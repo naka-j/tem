@@ -8,7 +8,6 @@
     "angular-route": "^1.4.0",
     "angular-sanitize": "^1.4.0",
     "restangular": "^1.5.2",
-    "angularLocalStorage": "ngStorage#^0.3.2",
     "ngstorage": "^0.3.11"
   },
   "devDependencies": {
