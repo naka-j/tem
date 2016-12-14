@@ -1,3 +1,34 @@
-<input type="text" ng-model='application.departure_place'>
+<div class="new-application" ng-controller="NewApplicationCtrl" ng-init="init()">
+  <div class='show-form'>
+    <div id='firstForm' ng-show="applicationFormNo=='1'" class="animate-show" ng-class='{"switch-right": !switchToLeft, "switch-left": switchToLeft}'>
+      <ng-include src="'views/application-forms/transportation.html'"></ng-include>
+    </div>
+    <div ng-show="applicationFormNo=='2'" class="animate-show" ng-class='{"switch-right": !switchToLeft, "switch-left": switchToLeft}'>
+      <ng-include src="'views/application-forms/5_purpose.html'"></ng-include>
+    </div>
+    <div ng-show="applicationFormNo=='3'" class="animate-show" ng-class='{"switch-right": !switchToLeft, "switch-left": switchToLeft}'>
+      <ng-include src="'views/application-forms/1_departure.html'"></ng-include>
+    </div>
+    <div ng-show="applicationFormNo=='4'" class="animate-show" ng-class='{"switch-right": !switchToLeft, "switch-left": switchToLeft}'>
+      <ng-include src="'views/application-forms/2_arrival.html'"></ng-include>
+    </div>
+    <div ng-show="applicationFormNo=='5'" class="animate-show" ng-class='{"switch-right": !switchToLeft, "switch-left": switchToLeft}'>
+      <ng-include src="'views/application-forms/3_via.html'"></ng-include>
+    </div>
+    <div ng-show="applicationFormNo=='6'" class="animate-show" ng-class='{"switch-right": !switchToLeft, "switch-left": switchToLeft}'>
+      <ng-include src="'views/application-forms/payment.html'"></ng-include>
+    </div>
+    <div ng-show="applicationFormNo=='7'" class="animate-show" ng-class='{"switch-right": !switchToLeft, "switch-left": switchToLeft}'>
+      <ng-include src="'views/application-forms/4_route.html'"></ng-include>
+    </div>
 
-<input type="submit" value="完了" ng-click="saveApplication()">
+    <div ng-show="applicationFormNo=='8'" class="animate-show" ng-class='{"switch-right": !switchToLeft, "switch-left": switchToLeft}'>
+      <ng-include src="'views/application-forms/confirm.html'"></ng-include>
+    </div>
+  </div>
+  <div class="container">
+    <button class="btn btn-success pull-left" type="button" ng-click="previousForm()">PREV</button>
+    <button class="btn btn-success pull-right" type="button" ng-click="nextForm()">NEXT</button>
+  </div>
+  <!-- <input type="submit" value="完了" ng-click="saveApplication()" /> -->
+</div>

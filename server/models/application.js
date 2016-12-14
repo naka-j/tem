@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
+var ApplicationDetailSchema = require('./application-detail.js');
 var AppicationSchema = new mongoose.Schema({
-  apply_id: {type: String, required: true},
   user_id: {type: String, required: true},
   target_month: {type: Number, required: true},
   apply_date: {type: Date},
@@ -8,6 +8,7 @@ var AppicationSchema = new mongoose.Schema({
   total_fare: {type: Number},
   manage_user_id: {type: Number},
   created_at: {type: Date, default: Date.now},
-  updated_at: {type: Date, default: Date.now}
+  updated_at: {type: Date, default: Date.now},
+  details: [ApplicationDetailSchema]
 });
 module.exports = AppicationSchema;

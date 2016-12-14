@@ -35,7 +35,7 @@ module.exports = function(app, route) {
 
         // when valid -> create token
         var token = jwt.sign(user, app.get('secretKey'), {
-          expiresIn: '300s'
+          expiresIn: '24h'
         });
 
         res.json({
