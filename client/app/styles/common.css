@@ -4,15 +4,25 @@ ul {
   list-style: none;
 }
 
-.error {
-  color: red;
-  background-color: rgb(254, 176, 176);
-  border: 1px rgb(247, 244, 158) solid;
-  padding: 10px;
-  border-radius: 4px;
+.error-alert {
+  -webkit-transition: 200ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  -moz-transition: 200ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  -ms-transition: 200ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  -o-transition: 200ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  transition: 200ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  position: relative;
 }
 
-.sidemenu {
-  position: relative;
+.error-alert.ng-hide-remove {
   left: 0;
+}
+.error-alert.ng-hide-remove-active {
+  left: 100%;
+}
+
+.error-alert.ng-hide-add {
+  opacity: 1;
+}
+.error-alert.ng-hide-add-active {
+  opacity: 0;
 }

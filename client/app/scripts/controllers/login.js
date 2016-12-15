@@ -36,7 +36,7 @@ angular.module('clientApp')
         $localStorage.token = response.token
         console.log("auth successfully!");
 
-        $location.path('/applications')
+        $location.path('/application/new')
       }).error(function (response) {
         $scope.errors.push(response.message);
       });
