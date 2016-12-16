@@ -1,4 +1,12 @@
-.show-form {
+.carousel-inner > .item {
+  -webkit-transition: 300ms ease-in-out all;
+  -moz-transition: 300ms ease-in-out all;
+  -ms-transition: 300ms ease-in-out all;
+  -o-transition: 300ms ease-in-out all;
+  transition: 300ms ease-in-out all;
+}
+
+/*.show-form {
   height: 400px;
 }
 .animate-show {
@@ -40,4 +48,4 @@
 }
 .animate-show.switch-left.ng-hide-add.ng-hide-add-active{
     left: 100%;
-}
+}*/

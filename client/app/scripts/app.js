@@ -14,7 +14,8 @@ angular
     'ngRoute',
     'ngSanitize',
     'restangular',
-    'ngStorage'
+    'ngStorage',
+    'ngTouch'
   ])
 
   .config(function ($routeProvider, $httpProvider, RestangularProvider) {
@@ -41,7 +42,7 @@ angular
         controller: 'NewApplicationCtrl'
       })
       .otherwise({
-        template: '404.html'
+        templateUrl: '/404.html'
       });
       $httpProvider.defaults.transformRequest = function(data){
         if (data === undefined) {
