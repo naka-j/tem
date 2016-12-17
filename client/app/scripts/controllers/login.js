@@ -29,7 +29,7 @@ angular.module('clientApp')
       }).success(function (response) {
         // If successful we assign the response to the global user model
         if (!response.success) {
-          $scope.errors = [response.message];
+          $scope.errors.push(response.message);
           return;
         }
 
