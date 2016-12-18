@@ -1,18 +1,31 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-2 col-md-offset-2 col-sm-2 col-sm-offset-2">
+			<div class="card card-signup">
+				<div class="header header-primary text-center">
+					<h4>支払い方法</h4>
+				</div>
+				<div class="content">
+          <ul class="nav nav-pills nav-pills-info" role="tablist">
+							<!--
+								color-classes: "nav-pills-primary", "nav-pills-info", "nav-pills-success", "nav-pills-warning","nav-pills-danger"
+	                        -->
+						<li class="active method-ic">
+							<a role="tab" data-toggle="tab" aria-expanded="true" ng-click="application.thicket_type='1'">
+								<i class="material-icons">dashboard</i>
+								ICカード
+							</a>
+						</li>
+						<li class="method-thicket">
+              <a role="tab" data-toggle="tab" aria-expanded="false" ng-click="application.thicket_type='2'">
+	            	<i class="material-icons">schedule</i>
+                切符
+              </a>
+            </li>
 
-<div class="container">
-  <h4>支払い方法は？</h4>
-</div>
-<div class="container">
-  <div class="col-xs-8 col-xs-offset-2">
-    <form action="./entraining.html">
-      <button class="btn btn-info">ICカード</button>
-    </form>
-  </div>
-</div>
-<div class="container">
-  <div class="col-xs-8 col-xs-offset-2">
-    <form action="./entraining.html">
-      <button class="btn btn-info">　切符　</button>
-    </form>
-  </div>
+          </ul>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>

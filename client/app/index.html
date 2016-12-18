@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="styles/applications.css"> -->
     <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../bower_components/material-kit/assets/css/material-kit.css">
+    <link rel="stylesheet" href="./styles/common.css">
     <link rel="stylesheet" href="./styles/applications.css">
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
@@ -33,30 +34,32 @@
     <!--[if lte IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
+    <nav class="navbar navbar-transparent navbar-absolute">
+    	<div class="container">
+      	<!-- Brand and toggle get grouped for better mobile display -->
+      	<div class="navbar-header">
+      		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example">
+        		<span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+      		</button>
+          <span class="navbar-brand">TravelExpenseManeger</span>
+      	</div>
 
-    <nav class="navbar navbar-transparent">
-  		<div class="container-fluid">
-  				<div class="navbar-header">
-  					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example-navbar">
-  						<span class="sr-only">Toggle navigation</span>
-  							<span class="icon-bar"></span>
-  							<span class="icon-bar"></span>
-  							<span class="icon-bar"></span>
-  					</button>
-  					<span class="navbar-brand">TravelExpenseManeger</span>
-  				</div>
-  				<div class="collapse navbar-collapse" id="example-navbar" ng-controller="MenuCtrl">
-  					<ul class="nav navbar-nav">
-  						<li><a ng-href='/#/application/new'>新規</a></li>
-              <li><a ng-href='/#/applications'>一覧</a></li>
-  						<li><a hg-href='/#/login' ng-click='doLogout();'>ログアウト</a></li>
-  					</ul>
-  				</div>
-  		</div>
-  	</nav>
+      	<div class="collapse navbar-collapse" id="navigation-example" ng-controller="MenuCtrl">
+      		<ul class="nav navbar-nav navbar-right">
+            <li><a ng-href='/#/application/new'>新規</a></li>
+            <li><a ng-href='/#/applications'>一覧</a></li>
+            <li><a hg-href='/#/login' ng-click='doLogout();'>ログアウト</a></li>
+          </ul>
+      	</div>
+    	</div>
+    </nav>
 
-    <div ng-view=""></div>
-
+    <div class="wrapper">
+      <div ng-view=""></div>
+    </div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
@@ -77,13 +80,15 @@
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/lodash/lodash.js"></script>
     <script src="bower_components/restangular/dist/restangular.js"></script>
     <script src="bower_components/ngstorage/ngStorage.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="../bower_components/material-kit/assets/js/material-kit.js"></script>
+    <script src="../bower_components/material-kit/assets/js/material.min.js"></script>
     <script src="bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
-    <script src="bower_components/nouislider/distribute/nouislider.js"></script>
-    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="../bower_components/material-kit/assets/js/nouislider.min.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 

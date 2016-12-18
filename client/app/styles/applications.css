@@ -184,6 +184,23 @@ html, body {
   font-size: 20px;
 }
 
+.daily-title {
+  border: 1px green solid;
+  padding: 20px;
+  box-shadow: 0 5px 5px #888;
+  -webkit-transition: background-color 0.2s;
+  -o-transition: background-color 0.2s;
+  transition: background-color 0.2s;
+}
+
+.daily-title:hover {
+  cursor: pointer;
+  background-color: rgb(228, 247, 110);
+  -webkit-transition: background-color 0.5s;
+  -o-transition: background-color 0.5s;
+  transition: background-color 0.5s;
+}
+
 .daily-total {
   text-align: right;
   color: rgb(18, 167, 78);

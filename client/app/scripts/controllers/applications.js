@@ -15,19 +15,10 @@ angular.module('clientApp')
       'Karma'
     ];
 
-    $scope.applications = Application.getList().$object;
+    // $scope.applications = Application.getList().$object;
 
-    // $scope.getAll = function() {
-    //   $scope.errors = [];
-    //
-    //   var successHandler = function(response) {
-    //     console.log(response);
-    //   }
-    //
-    //   var errorHandler = function(response) {
-    //     console.log(response);
-    //   }
-    //
-    //   $http.get('http://localhost:3000/applications', '111111').success(successHandler).error(errorHandler)
-    // }
+    $scope.getAll = function() {
+      var month = new Date().month;
+      $scope.applications = Application.getList({'target_month': month}).$object;
+    }
   });
