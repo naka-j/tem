@@ -8,7 +8,7 @@ html,body{
 .header{
   background-color: rgb(173, 173, 173);
 }
-
+/*
 .btn{
   font-size: 30px;
   margin-right: auto;
@@ -18,7 +18,7 @@ html,body{
 .btn-success{
   float: right;
   font-size: 25px;
-}
+}*/
 form{
   padding: 0;
   margin: 0;

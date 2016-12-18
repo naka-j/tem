@@ -16,8 +16,12 @@ angular.module('clientApp')
     ];
 
     $scope.init = function() {
-      $scope.applicationFormNo = "1";
-      $scope.beforeMovingTo = 'N'
+      $scope.application = {};
+      $scope.application_detail = {}
+    }
+
+    $scope.selectTrafficType = function(type) {
+      $scope.application_detail.traffic_type = type
     }
 
     $scope.saveApplication = function() {

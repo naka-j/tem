@@ -1,97 +1,70 @@
 <div class="container">
-  <h4>入力確認</h4>
-  <div class="row">
-    <div class="col-xs-3">
-      出発駅
-    </div>
-    <div class="col-xs-8">
-      丸ノ内線：東京駅
-    </div>
-    <div class="col-xs-1">
-      <button type="button" rel="tooltip" title="Edit Profile" class="btn btn-success btn-simple btn-xs">
-          <i class="fa fa-edit"></i>
-      </button>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-3">
-      降車駅
-    </div>
-    <div class="col-xs-8">
-      丸ノ内線：池袋駅
-    </div>
-    <div class="col-xs-1">
-      <button type="button" rel="tooltip" title="Edit Profile" class="btn btn-success btn-simple btn-xs">
-          <i class="fa fa-edit"></i>
-      </button>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-3">
-      経由駅
-    </div>
-    <div class="col-xs-8">
-      なし
-    </div>
-    <div class="col-xs-1">
-      <button type="button" rel="tooltip" title="Edit Profile" class="btn btn-success btn-simple btn-xs">
-          <i class="fa fa-edit"></i>
-      </button>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-3">
-      目的
-    </div>
-    <div class="col-xs-8">
-      帰社
-    </div>
-    <div class="col-xs-1">
-      <button type="button" rel="tooltip" title="Edit Profile" class="btn btn-success btn-simple btn-xs">
-          <i class="fa fa-edit"></i>
-      </button>
-    </div>
-  </div>
 	<div class="row">
-		<div class="col-xs-3">
-			目的
-		</div>
-		<div class="col-xs-8">
-			帰社
-		</div>
-		<div class="col-xs-1">
-			<button type="button" rel="tooltip" title="Edit Profile" class="btn btn-success btn-simple btn-xs">
-					<i class="fa fa-edit"></i>
-			</button>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-xs-3">
-			料金
-		</div>
-		<div class="col-xs-8">
-			195円
-		</div>
-	</div>
-  <div class="container">
-  <button class="btn btn-success" data-toggle="modal" data-target="#myModal">申請する</button>
-  </div>
-	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					<h4 class="modal-title" id="myModalLabel">申請しました！</h4>
-				</div>
-				<div class="modal-body">
+		<div class="card card-signup">
+			<div class="header header-warning text-center">
+				<h4>入力確認</h4>
+			</div>
+			<div class="content">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-3 text-left">目的</div>
+            <div class="col-xs-7 text-right" ng-bind="application_detail.purpose"></div>
+            <div class="col-xs-2">
+              <span data-target="#carousel-example-generic" data-slide-to="0"><i class="fa fa-edit"></i></span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sx-3 text-left">交通手段</div>
+            <div class="col-sm-7 text-right">{{application_detail.traffic_type}}</div>
+            <div class="col-sm-2">
+              <button type="button" rel="tooltip" title="編集" class="btn btn-success btn-simple btn-xs">
+                <i class="icon-pencil"></i>
+              </button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-3 text-left">出発駅／出発地</div>
+            <div class="col-xs-7 text-right">{{application_detail.departure_place}}</div>
+            <div class="col-xs-2">
+              <button type="button" rel="tooltip" title="編集" class="btn btn-success btn-simple btn-xs">
+                <i class="icon-pencil"></i>
+              </button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-3 text-left">到着駅／到着地</div>
+            <div class="ol-xs-7 text-right">{{application_detail.arrival_place}}</div>
+            <div class="col-xs-2">
+              <button type="button" rel="tooltip" title="編集" class="btn btn-success btn-simple btn-xs">
+                <i class="icon-pencil"></i>
+              </button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-3 text-left">支払い方法</div>
+            <div class="ol-xs-7 text-right">{{application_detail.thicket_type}}</div>
+            <div class="col-xs-2">
+              <button type="button" rel="tooltip" title="編集" class="btn btn-success btn-simple btn-xs">
+                <i class="icon-pencil"></i>
+              </button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-3 text-left">料金</div>
+            <div class="ol-xs-7 text-right">{{application_detail.fare}}円</div>
+            <div class="col-xs-2">
+              <button type="button" rel="tooltip" title="編集" class="btn btn-success btn-simple btn-xs">
+                <i class="icon-pencil"></i>
+              </button>
+            </div>
+          </div>
 
-				</div>
-				<div class="modal-footer">
-					<form action="./goal.html">
-						<button class="btn btn-info btn-simple">top</button>
-					</form>
-				</div>
+        </div>
 			</div>
 		</div>
+
+    <div class="text-right">
+      <a class="btn btn-success" ng-click="saveApplication">入力完了</a>
+    </div>
 	</div>
 </div>

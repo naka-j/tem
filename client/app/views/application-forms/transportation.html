@@ -11,19 +11,19 @@
 								color-classes: "nav-pills-primary", "nav-pills-info", "nav-pills-success", "nav-pills-warning","nav-pills-danger"
 	                        -->
 						<li class="active">
-							<a href="#dashboard" role="tab" data-toggle="tab" aria-expanded="true">
+							<a role="tab" data-toggle="tab" aria-expanded="true" ng-click="selectTrafficType('1')">
 								<i class="material-icons">dashboard</i>
 								電車
 							</a>
 						</li>
 						<li class="">
-              <a href="#schedule" role="tab" data-toggle="tab" aria-expanded="false">
+              <a role="tab" data-toggle="tab" aria-expanded="false" ng-click="selectTrafficType('2')">
 	            	<i class="material-icons">schedule</i>
                 バス
               </a>
             </li>
             <li>
-              <a href="#tasks" role="tab" data-toggle="tab">
+              <a role="tab" data-toggle="tab" ng-click="selectTrafficType('3')">
 		            <i class="material-icons">list</i>
                   タクシー
               </a>
