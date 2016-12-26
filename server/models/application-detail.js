@@ -8,7 +8,7 @@ var ApplicationDetailSchema = new mongoose.Schema({
   via_place1: {type: String},
   via_place2: {type: String},
   via_place3: {type: String},
-  thicket_type: {type: String},
+  ticket_type: {type: String},
   round_trip_flag: {type: Boolean, default: false},
   fare: {type: Number},
   manual_input_flag: {type: Boolean, default: false},

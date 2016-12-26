@@ -65,6 +65,9 @@ module.exports = function(app, route) {
           results.fare = fareList;
           results.station = stationsList;
           results.line = linesList;
+          results.from = from;
+          results.to = to;
+          results.ticket_type = ticketType;
           res.send(results);
         })
 

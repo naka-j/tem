@@ -9,6 +9,7 @@ module.exports = function(app, route) {
 
     // validate token
     if (!token) {
+      console.log('No token provided.');
       return res.status(403).send({
         success: false,
         message: 'No token provided.'
@@ -18,6 +19,7 @@ module.exports = function(app, route) {
     jwt.verify(token, app.get('secretKey'), function(err, decoded) {
       if (err) {
         if (err.name == 'TokenExpiredError') {
+          console.log(err.name);
           return res.status(401).send({
             success: false,
             message: 'Token expired'

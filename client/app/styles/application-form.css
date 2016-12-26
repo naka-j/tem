@@ -7,12 +7,20 @@
   padding-bottom: 20px;
 }
 
+.new-application .card-carousel {
+  padding-bottom: 0;
+}
+
 /*.card-carousel {
   background-color: rgba(255, 255, 255, 0.4);
 }*/
 
 .card .content {
   padding: 0 20px;
+}
+
+.carousel-inner {
+  height: 60vh;
 }
 
 .carousel-inner > .item {
@@ -29,10 +37,19 @@
   float: left;
   margin-left: 30px;
 }
-.method-thicket {
+.method-ticket {
   float: right!important;
   margin-right: 30px;
 }
+
+.confirm-page .row{
+  line-height: 40px;
+}
+.confirm-page .bb1ccc{
+  border-bottom: 1px #eee solid;
+}
+
+
 /*.show-form {
   height: 400px;
 }
