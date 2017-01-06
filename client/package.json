@@ -1,6 +1,10 @@
 {
   "name": "client",
   "private": true,
+  "scripts": {
+    "start": "node ../server",
+    "postinstall": "./node_modules/grunt-cli/bin/grunt build"
+  },
   "devDependencies": {
     "autoprefixer-core": "^5.2.1",
     "grunt": "^0.4.5",
