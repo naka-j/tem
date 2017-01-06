@@ -14,7 +14,7 @@ angular.module('clientApp')
       'AngularJS',
       'Karma'
     ];
-    $scope.doLogin = function(e) {
+    $scope.doLogin = function() {
       $scope.errors = [];
 
       var params = {user_id: $scope.userId, password: $scope.password}

@@ -86,7 +86,6 @@ angular.module('clientApp')
         $http({
         	method : 'GET',
         	url : 'http://localhost:3000/y_transit_info?from=' + params.from + '&' + 'to=' + params.to + '&' + 'ticket=' + params.ticket_type,
-          data: params,
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
           }
@@ -95,7 +94,7 @@ angular.module('clientApp')
           if (!response.success) {
             return;
           }
-          $scope.routes_info = response;
+          $scope.routes_info = response.routes;
         }).error(function (response) {
           // $scope.errors.push(response.message);
         });

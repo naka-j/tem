@@ -6,7 +6,7 @@ var jwt = require('jsonwebtoken');
 module.exports = function(app, route) {
   router.route('/')
     .post(function(req, res) {
-      console.log(req);
+      // console.log(req);
       console.log('!!!!!!!!!authenticate!!!!!!!!! params -> ' + req.body.user_id);
       var User = mongoose.model('user');
       // User.findOne({user_id: req.query.user_id}, function(error, user) {

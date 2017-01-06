@@ -5,21 +5,11 @@
 			<div class="nav-tabs-navigation">
 				<div class="nav-tabs-wrapper">
 					<ul class="nav nav-tabs" data-tabs="tabs">
-						<li class="active">
+						<li class="active" ng-repeat="route in routes_info">
 							<a data-toggle="tab">
-								Profile
+								<i class="material-icons">face</i>
+								ルート
 							</a>
-						</li>
-						<li>
-							<a data-toggle="tab">
-								Messages
-							</a>
-						</li>
-						<li>
-							<a data-toggle="tab">
-								Settings
-							</a>
-
 						</li>
 					</ul>
 				</div>
@@ -27,7 +17,7 @@
 		</div>
 		<div class="content">
 			<div class="tab-content text-center">
-				<div class="tab-pane active">
+				<div class="tab-pane active" >
 					<p> I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus. I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at. I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at. </p>
 				</div>
 				<div class="tab-pane">
@@ -39,5 +29,4 @@
 			</div>
 		</div>
 	</div>
-  {{routes_info}}
 </div>
