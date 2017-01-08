@@ -42,6 +42,17 @@
   margin-right: 30px;
 }
 
+.tab-pane .station {
+  padding: 5px 0;
+}
+
+.tab-pane .line {
+  border-left: 5px #333 solid;
+  height: 20px;
+  margin-left: 10px;
+  padding-left: 10px;
+}
+
 .confirm-page .row{
   line-height: 40px;
 }

@@ -22,8 +22,9 @@ app.set('secretKey', config.secret);
 
 app.models = require('./models/index.js');
 
-console.log('listening to port 3000...');
-app.listen(3000);
+var listeningPort = process.env.PORT || 3000;
+console.log('listening to port' + listeningPort + '...');
+app.listen(listeningPort);
 
 // mongoose.connect('mongodb://localhost/transcoster');
 if (config.nodeEnv == 'production') {

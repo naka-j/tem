@@ -17,13 +17,15 @@ angular.module('clientApp')
 
     var TRAFFIC_TYPE_NAMES = {"1": "電車", "2": "バス", "3": "タクシー"}
     var TICKET_TYPE_NAMES = {"1": "ICカード", "2": "切符"}
+    // ルート取得：前回のパラメータ保持用
+    var lastCheckParams = {}
 
     $scope.$watch("currentFormNo", function(){
       if ($scope.currentFormNo == "0") {
         $scope.showPreviousButton = false;
         $scope.showConfirmButton = true;
         $scope.showNextButton = true;
-      } else if ($scope.currentFormNo == "8") {
+      } else if ($scope.currentFormNo == "9") {
         $scope.showPreviousButton = true;
         $scope.showNextButton = false;
         $scope.showConfirmButton = false;
@@ -33,7 +35,6 @@ angular.module('clientApp')
         $scope.showConfirmButton = true;
       }
     })
-
 
     $scope.init = function() {
       $scope.application = {};
@@ -56,7 +57,13 @@ angular.module('clientApp')
         purpose: 'お客様先、面談のため'
       }
 
+      $scope.routeActivePanel = 0
     }
+
+    $scope.onopen = function($event) {
+      // カレンダーを開く
+      $scope.opened = true;
+    };
 
     $scope.selectTrafficType = function(type) {
       $scope.application_detail.traffic_type = type
@@ -82,7 +89,13 @@ angular.module('clientApp')
       }
 
       if ($scope.application_detail.departure_place && $scope.application_detail.arrival_place && $scope.application_detail.traffic_type == "1" && $scope.application_detail.ticket_type) {
-        var params = {from: $scope.application_detail.departure_place, to: $scope.application_detail.arrival_place, ticket_type: $scope.application_detail.ticket_type}
+        var from = $scope.application_detail.departure_place + "駅"
+        var to = $scope.application_detail.arrival_place + "駅"
+        var params = {from: from, to: to, ticket_type: $scope.application_detail.ticket_type}
+        // 条件に変更がない場合は取得しにいかない
+        if (params == lastCheckParams) {
+          return;
+        }
         $http({
         	method : 'GET',
         	url : 'http://localhost:3000/y_transit_info?from=' + params.from + '&' + 'to=' + params.to + '&' + 'ticket=' + params.ticket_type,
@@ -95,10 +108,16 @@ angular.module('clientApp')
             return;
           }
           $scope.routes_info = response.routes;
+          lastCheckParams = params
         }).error(function (response) {
           // $scope.errors.push(response.message);
         });
       }
+    }
+
+    $scope.changeActivePanel = function(index, fare) {
+      $scope.routeActivePanel = index;
+      $scope.application_detail.fare = fare;
     }
 
     $scope.saveApplication = function() {

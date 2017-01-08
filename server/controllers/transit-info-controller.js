@@ -15,7 +15,7 @@ module.exports = function(app, route) {
       cheerio.fetch(requestURL, {}, function (error, $, response, body) {
         var fareList = [];
         $('.routeList .fare').each(function() {
-          fareList.push($(this).text());
+          fareList.push($(this).text().trim().replace('円', ''));
         });
 
         var stationsList = [];

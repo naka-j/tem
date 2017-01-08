@@ -15,7 +15,8 @@ angular
     'ngSanitize',
     'restangular',
     'ngStorage',
-    'ngTouch'
+    'ngTouch',
+    'ui.bootstrap'
   ])
 
   .config(function ($routeProvider, $httpProvider, RestangularProvider) {
