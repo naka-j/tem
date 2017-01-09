@@ -7,6 +7,7 @@ var _ = require('lodash');
 
 var app = express();
 
+app.use(express.static('../client/dist'))
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(methodOverride('X-HTTP-Method-Override'));

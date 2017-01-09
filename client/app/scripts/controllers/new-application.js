@@ -47,9 +47,8 @@ angular.module('clientApp')
       $scope.application_detail = {
         use_date: new Date(),
         traffic_type: '1',
-        use_line: '東京メトロ　丸ノ内線',
-        departure_place: '東京駅',
-        arrival_place: '池袋駅',
+        departure_place: '東京',
+        arrival_place: '池袋',
         ticket_type: '1',
         round_trip_flag: false,
         fare: 270,
@@ -67,6 +66,10 @@ angular.module('clientApp')
 
     $scope.selectTrafficType = function(type) {
       $scope.application_detail.traffic_type = type
+    }
+
+    $scope.selectTicketType = function(type) {
+      $scope.application_detail.ticket_type = type
     }
 
     $scope.setFormValue = function() {
@@ -93,7 +96,7 @@ angular.module('clientApp')
         var to = $scope.application_detail.arrival_place + "駅"
         var params = {from: from, to: to, ticket_type: $scope.application_detail.ticket_type}
         // 条件に変更がない場合は取得しにいかない
-        if (params == lastCheckParams) {
+        if (params.from == lastCheckParams.from && params.to == lastCheckParams.to && params.ticket_type == lastCheckParams.ticket_type) {
           return;
         }
         $http({

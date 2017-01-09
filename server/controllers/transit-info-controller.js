@@ -37,6 +37,7 @@ module.exports = function(app, route) {
 
         // ２ページ目（４〜６件目）があるときはもう１回
         if ($('.navPage a').length > 0) {
+          console.log('Get routes from 2 pages');
           // results.fare = fareList;
           // results.station = stationsList;
           // results.line = linesList;
@@ -44,7 +45,7 @@ module.exports = function(app, route) {
 
           $('.navPage a').click().then(function(html) {
             html.$('.routeList .fare').each(function() {
-              fareList.push($(this).text());
+              fareList.push($(this).text().trim().replace('円', ''));
             });
 
             html.$('.routeDetail').each(function() {
@@ -56,31 +57,49 @@ module.exports = function(app, route) {
 
               var lines = []
               $(this).find('.transport div').each(function() {
-                lines.push($(this).text().trim().replace('[train]', ''));
+                lines.push($(this).text().trim().replace('[train]', '').replace('[walk]', ''));
               })
               linesList.push(lines);
             });
+
+            // JSON 整形
+            var results = {}
+            results.routes = {}
+            fareList.forEach(function(fare, index) {
+              var info = {
+                fare: fareList[index],
+                station: stationsList[index],
+                line: linesList[index]
+              };
+              console.log(info);
+              results.routes[index] = info;
+            })
+            results.from = paramsFrom;
+            results.to = paramsTo;
+            results.ticket_type = paramsTicketType;
+            results.success = true;
+            res.send(results);
           })
+        } else {
+          // JSON 整形
+          var results = {}
+          results.routes = {}
+          fareList.forEach(function(fare, index) {
+            var info = {
+              fare: fareList[index],
+              station: stationsList[index],
+              line: linesList[index]
+            };
+            console.log(info);
+            results.routes[index] = info;
+          })
+          results.from = paramsFrom;
+          results.to = paramsTo;
+          results.ticket_type = paramsTicketType;
+          results.success = true;
+          res.send(results);
+
         } // end if
-
-        // JSON 整形
-        var results = {}
-        results.routes = {}
-        fareList.forEach(function(fare, index) {
-          var info = {
-            fare: fareList[index],
-            station: stationsList[index],
-            line: linesList[index]
-          };
-          console.log(info);
-          results.routes[index] = info;
-        })
-        results.from = paramsFrom;
-        results.to = paramsTo;
-        results.ticket_type = paramsTicketType;
-        results.success = true;
-        res.send(results);
-
       });
 
     });
