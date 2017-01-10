@@ -42,6 +42,10 @@ angular
         templateUrl: 'views/new-application.html',
         controller: 'NewApplicationCtrl'
       })
+      .when('/application/:id/edit', {
+        templateUrl: 'views/new-application.html',
+        controller: 'NewApplicationCtrl'
+      })
       .otherwise({
         templateUrl: '/404.html'
       });
