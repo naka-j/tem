@@ -1,0 +1,40 @@
+body {
+  background-image: url("../images/PPH_akihabaranohitogomi-thumb-autox1600-13464.jpg");
+  background-size: cover;
+  background-position: top center;
+  min-height: 100vh;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.error-alert {
+  -webkit-transition: 200ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  -moz-transition: 200ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  -ms-transition: 200ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  -o-transition: 200ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  transition: 200ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  position: relative;
+}
+
+.error-alert.ng-hide-remove {
+  left: 0;
+}
+.error-alert.ng-hide-remove-active {
+  left: 100%;
+}
+
+.error-alert.ng-hide-add {
+  opacity: 1;
+}
+.error-alert.ng-hide-add-active {
+  opacity: 0;
+}
+
+.wrapper {
+  padding-top: 100px;
+  height: 100vh;
+}

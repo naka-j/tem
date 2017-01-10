@@ -1,0 +1,12 @@
+<div class="app container" ng-controller='ApplicationsCtrl' ng-init='getAll()'>
+  <div class="row">
+    <div class="main">
+      <a class="item" ng-repeat="application in applications" ng-href="/#/application/{{application._id}}/edit">
+        <p>{{application.details[0].use_date}}</p>
+        <span>{{application.details[0].departure_place}}</span>
+        <span>{{application.details[0].arrival_place}}</span>
+        <span>{{application.details[0].fare}}</span>
+      </a>
+    </div>
+  </div>
+</div>

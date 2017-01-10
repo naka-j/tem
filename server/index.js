@@ -7,7 +7,10 @@ var _ = require('lodash');
 
 var app = express();
 
-app.use(express.static('../client/dist'))
+app.use(express.static(__dirname + '/public'));
+app.engine('html', require('ejs').renderFile);
+app.set('views', __dirname + '/public/views');
+app.set('view engine', 'html');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(methodOverride('X-HTTP-Method-Override'));
@@ -45,6 +48,10 @@ mongoose.connection.once('open', function() {
   _.each(routes, function(controller, route){
     app.use(route, controller(app, route));
   });
+
+  app.use('/', function(req, res) {
+    res.render('index')
+  })
 });
 
 // app.use('/hello', function(req, res, next){

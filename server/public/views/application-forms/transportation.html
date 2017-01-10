@@ -1,0 +1,36 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+			<div class="card card-signup">
+				<div class="header header-primary text-center">
+					<h4>交通手段</h4>
+				</div>
+				<div class="content">
+          <ul class="nav nav-pills nav-pills-info" role="tablist">
+							<!--
+								color-classes: "nav-pills-primary", "nav-pills-info", "nav-pills-success", "nav-pills-warning","nav-pills-danger"
+	                        -->
+						<li class="active">
+							<a role="tab" data-toggle="tab" aria-expanded="true" ng-click="selectTrafficType('1')">
+								<i class="material-icons">directions_transit</i>
+								電車
+							</a>
+						</li>
+						<li class="">
+              <a role="tab" data-toggle="tab" aria-expanded="false" ng-click="selectTrafficType('2')">
+	            	<i class="material-icons">directions_bus</i>
+                バス
+              </a>
+            </li>
+            <li>
+              <a role="tab" data-toggle="tab" ng-click="selectTrafficType('3')">
+		            <i class="material-icons">directions_car</i>
+                  タクシー
+              </a>
+            </li>
+          </ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
