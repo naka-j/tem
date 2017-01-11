@@ -10,7 +10,8 @@ module.exports = function(app, route) {
       console.log('!!!!!!!!!authenticate!!!!!!!!! params -> ' + req.body.user_id);
       var User = mongoose.model('user');
       // User.findOne({user_id: req.query.user_id}, function(error, user) {
-      User.findOne({user_id: req.body.user_id}, function(error, user) {
+      User.findOne({user_id: '111111'}, function(error, user) {
+      // User.findOne({user_id: req.body.user_id}, function(error, user) {
         if (error) {
           throw error;
         }
@@ -24,7 +25,7 @@ module.exports = function(app, route) {
           return;
         }
 
-        if (user.password != req.body.password) {
+        if (user.password != '555555') {
         // if (user.password != req.query.password) {
           res.json({
             success: false,
