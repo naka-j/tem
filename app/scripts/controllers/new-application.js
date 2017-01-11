@@ -101,7 +101,7 @@ angular.module('clientApp')
         }
         $http({
         	method : 'GET',
-        	url : 'http://localhost:3000/y_transit_info?from=' + params.from + '&' + 'to=' + params.to + '&' + 'ticket=' + params.ticket_type,
+        	url : 'y_transit_info?from=' + params.from + '&' + 'to=' + params.to + '&' + 'ticket=' + params.ticket_type,
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
           }

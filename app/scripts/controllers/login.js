@@ -21,7 +21,7 @@ angular.module('clientApp')
       // $http.post('http://localhost:3000/authenticate', $scope.userId)
       $http({
       	method : 'POST',
-      	url : 'http://localhost:3000/authenticate',
+      	url : 'authenticate',
         data: params,
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded'
