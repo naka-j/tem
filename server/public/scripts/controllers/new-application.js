@@ -101,7 +101,7 @@ angular.module('clientApp')
         }
         $http({
         	method : 'GET',
-        	url : 'https://travel-ex.herokuapp.com/y_transit_info?from=' + params.from + '&' + 'to=' + params.to + '&' + 'ticket=' + params.ticket_type,
+        	url : 'y_transit_info?from=' + params.from + '&' + 'to=' + params.to + '&' + 'ticket=' + params.ticket_type,
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
           }

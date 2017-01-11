@@ -21,8 +21,7 @@ angular.module('clientApp')
       // $http.post('http://localhost:3000/authenticate', $scope.userId)
       $http({
       	method : 'POST',
-      	url : 'https://travel-ex.herokuapp.com/authenticate',
-      	// url : 'http://localhost:3000/authenticate',
+      	url : 'authenticate',
         data: params,
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded'
