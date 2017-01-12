@@ -15,13 +15,12 @@ angular
     'ngSanitize',
     'restangular',
     'ngStorage',
-    'ngTouch',
-    'ui.bootstrap'
+    'ngTouch'
   ])
 
   .config(function ($routeProvider, $httpProvider, RestangularProvider) {
-    // RestangularProvider.setBaseUrl('http://localhost:3000')
-    RestangularProvider.setBaseUrl('https://travel-ex.herokuapp.com/')
+    RestangularProvider.setBaseUrl('http://localhost:3000')
+    // RestangularProvider.setBaseUrl('https://travel-ex.herokuapp.com/')
     $routeProvider
       .when('/', {
         redirectTo: '/application/new'
@@ -38,9 +37,16 @@ angular
         templateUrl: 'views/new-application.html',
         controller: 'NewApplicationCtrl'
       })
+
+      .when('//application/:id/edit', {
+        templateUrl: 'views//application/:id/edit.html',
+        controller: 'ApplicationIdEditCtrl',
+        controllerAs: '/application/:id/edit'
+      })
       .when('/application/:id/edit', {
-        templateUrl: 'views/new-application.html',
-        controller: 'NewApplicationCtrl'
+        templateUrl: 'views/edit-application.html',
+        controller: 'EditApplicationCtrl',
+        controllerAs: 'editApplication'
       })
       .otherwise({
         templateUrl: '/404.html'
@@ -52,6 +58,7 @@ angular
         return $.param(data);
       };
       $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
+      $httpProvider.defaults.headers.put['Content-Type'] = 'application/x-www-form-urlencoded'
 
       $httpProvider.interceptors.push(function($q, $location, $localStorage) {
         return {

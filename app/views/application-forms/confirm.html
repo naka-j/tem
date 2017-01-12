@@ -8,14 +8,14 @@
         <div class="container">
           <div class="row bb1ccc">
             <div class="col-xs-3 text-left">目的</div>
-            <div class="col-xs-7 text-right">{{application_detail.purpose}}</div>
+            <div class="col-xs-7 text-right">{{application.purpose}}</div>
             <div class="col-xs-2 text-right text-success">
               <span data-target="#carousel-example-generic" data-slide-to="0"><i class="fa fa-edit"></i></span>
             </div>
           </div>
           <div class="row bb1ccc">
             <div class="col-xs-4 text-left">交通手段</div>
-            <div class="col-xs-6 text-right">{{application_detail.traffic_type_view}}</div>
+            <div class="col-xs-6 text-right">{{application.traffic_type_view}}</div>
             <div class="col-xs-2 text-right text-success">
               <span data-target="#carousel-example-generic" data-slide-to="1"><i class="fa fa-edit"></i></span>
             </div>
@@ -23,22 +23,22 @@
           <div class="row">
             <div class="col-xs-4 text-left">利用ルート</div>
             <div class="col-xs-8 text-left">
-              {{application_detail.departure_place}}<span class="text-success" data-target="#carousel-example-generic" data-slide-to="2"><i class="fa fa-edit"></i></span>
-              〜
-              {{application_detail.arrival_place}}<span class="text-success" data-target="#carousel-example-generic" data-slide-to="3"><i class="fa fa-edit"></i></span>
+              {{application.departure_place}}<span class="text-success" data-target="#carousel-example-generic" data-slide-to="2"><i class="fa fa-edit"></i></span>
+              ~
+              {{application.arrival_place}}<span class="text-success" data-target="#carousel-example-generic" data-slide-to="3"><i class="fa fa-edit"></i></span>
             </div>
 
           </div>
           <div class="row bb1ccc">
             <div class="col-xs-4 text-left"></div>
             <div class="col-xs-8 text-left">
-              {{application_detail.via_place_view}} 経由<span class="text-success" data-target="#carousel-example-generic" data-slide-to="2"><i class="fa fa-edit"></i></span>
+              {{application.via_place_view}}<span class="text-success" data-target="#carousel-example-generic" data-slide-to="2"><i class="fa fa-edit"></i></span>
             </div>
           </div>
 
           <div class="row bb1ccc">
             <div class="col-xs-5 text-left">支払い方法</div>
-            <div class="col-xs-5 text-right">{{application_detail.ticket_type_view}}</div>
+            <div class="col-xs-5 text-right">{{application.ticket_type_view}}</div>
             <div class="col-xs-2 text-right text-success">
               <span data-target="#carousel-example-generic" data-slide-to="4"><i class="fa fa-edit"></i></span>
             </div>
@@ -46,7 +46,7 @@
           <div class="row bb1ccc">
             <div class="col-xs-4 text-left"></div>
             <div class="col-xs-3 text-right">料金</div>
-            <div class="col-xs-3 text-right text-danger">{{application_detail.fare}}円</div>
+            <div class="col-xs-3 text-right text-danger">{{application.fare}}円</div>
             <div class="col-xs-2 text-right text-success">
               <span data-target="#carousel-example-generic" data-slide-to="5"><i class="fa fa-edit"></i></span>
             </div>

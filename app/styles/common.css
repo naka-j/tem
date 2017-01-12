@@ -1,7 +1,7 @@
 body {
-  background-image: url("../images/PPH_akihabaranohitogomi-thumb-autox1600-13464.jpg");
+  background: url("../images/PPH_akihabaranohitogomi-thumb-autox1600-13464.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
   background-size: cover;
-  background-position: top center;
   min-height: 100vh;
 }
 
