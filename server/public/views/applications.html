@@ -1,13 +1,19 @@
 <div class="app container" ng-controller='ApplicationsCtrl' ng-init='getAll()'>
   <div class="application-list">
-    <a class="item" ng-repeat="application in applications" ng-href="/#/application/{{application._id}}/edit">
+    <a class="item" ng-repeat="application in applications | orderBy: 'use_date': true" ng-href="/#/application/{{application._id}}/edit">
       <div class="row">
-        <div class="col-xs-2 text-right">{{application.details[0].use_date | date: 'd日'}}</div>
-        <div class="col-xs-3 text-right">{{application.details[0].departure_place}}</div>
+        <div class="col-xs-2 text-right">{{application.use_date | date: 'd日'}}</div>
+        <div class="col-xs-3 text-right">{{application.departure_place}}</div>
         <div class="col-xs-1 text-center">~</div>
-        <div class="col-xs-3">{{application.details[0].arrival_place}}</div>
-        <div class="col-xs-3 text-right">{{application.details[0].fare}}円<i class="material-icons md-18">keyboard_arrow_right</i></div>
+        <div class="col-xs-3">{{application.arrival_place}}</div>
+        <div class="col-xs-3 text-right">{{application.fare}}円<i class="material-icons md-18">keyboard_arrow_right</i></div>
       </div>
     </a>
+    <div class="text-right right-bottom">
+      <a ng-href="/#/application/new" class="btn btn-primary btn-fab btn-round">
+				<i class="material-icons">add</i>
+				<div class="ripple-container"></div>
+      </a>
+    </div>
   </div>
 </div>

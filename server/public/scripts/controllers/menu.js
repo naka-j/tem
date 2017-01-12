@@ -17,6 +17,7 @@ angular.module('clientApp')
 
     $scope.doLogout = function() {
       $localStorage.token = '';
+      $localStorage.user_id = '';
       $location.path('/login')
     }
   });

@@ -1,0 +1,78 @@
+<div class='show-form'>
+  <div class="card card-raised card-carousel">
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="false">
+      <div class="carousel slide" data-ride="carousel" data-interval="false">
+
+        <!-- Indicators -->
+        <ol class="carousel-indicators" ng-hide='true'>
+          <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="4"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="5"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="6"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="7"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="8"></li>
+          <!-- <li data-target="#carousel-example-generic" data-slide-to="9"></li> -->
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+          <div class="item active">
+            <ng-include src="'views/application-forms/date.html'"></ng-include>
+          </div>
+          <div class="item">
+            <ng-include src="'views/application-forms/5_purpose.html'"></ng-include>
+          </div>
+          <div class="item">
+            <ng-include src="'views/application-forms/transportation.html'"></ng-include>
+          </div>
+          <div class="item">
+            <ng-include src="'views/application-forms/1_departure.html'"></ng-include>
+          </div>
+          <div class="item">
+            <ng-include src="'views/application-forms/2_arrival.html'"></ng-include>
+          </div>
+          <!-- <div class="item">
+            <ng-include src="'views/application-forms/3_via.html'"></ng-include>
+          </div> -->
+          <div class="item">
+            <ng-include src="'views/application-forms/payment.html'"></ng-include>
+          </div>
+          <div class="item form-route">
+            <ng-include src="'views/application-forms/4_route.html'"></ng-include>
+          </div>
+          <div class="item">
+            <ng-include src="'views/application-forms/fare.html'"></ng-include>
+          </div>
+          <div class="item">
+            <ng-include src="'views/application-forms/confirm.html'"></ng-include>
+          </div>
+
+        </div>
+
+        <!-- Controls -->
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-4 text-left">
+              <button ng-show="showPreviousButton" type='button' ng-click="setFormValue()" class="btn btn-simple btn-primary btn-lg" data-target="#carousel-example-generic" data-slide="prev">
+                前
+              </button>
+            </div>
+            <div class="col-xs-4 text-center">
+              <button ng-show="showConfirmButton" type='button' ng-click="setFormValue()" class="btn btn-simple btn-primary btn-lg" data-target="#carousel-example-generic" data-slide-to="8">
+                確認
+              </button>
+            </div>
+            <div class="col-xs-4 text-right">
+              <button ng-show="showNextButton" type='button' ng-click="setFormValue()" class="btn btn-simple btn-primary btn-lg" data-target="#carousel-example-generic" data-slide="next">
+                次
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -22,6 +22,7 @@ angular.module('clientApp')
       $http({
       	method : 'POST',
       	url : 'authenticate',
+      	// url : 'http://localhost:3000/authenticate',
         data: params,
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded'
@@ -34,6 +35,7 @@ angular.module('clientApp')
         }
 
         $localStorage.token = response.token
+        $localStorage.user_id = params.user_id
         console.log("auth successfully!");
 
         $location.path('/application/new')

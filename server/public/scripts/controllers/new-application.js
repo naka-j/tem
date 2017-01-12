@@ -8,7 +8,7 @@
  * Controller of the clientApp
  */
 angular.module('clientApp')
-  .controller('NewApplicationCtrl', function ($scope, $http, $location, Application, $timeout) {
+  .controller('NewApplicationCtrl', function ($scope, $http, $location, Application, $localStorage) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -37,15 +37,12 @@ angular.module('clientApp')
     })
 
     $scope.init = function() {
-      $scope.application = {};
-      $scope.application_detail = {}
-
+      var currentDate = new Date();
       $scope.application = {
-        user_id: 111111,
-        target_month: 12
-      }
-      $scope.application_detail = {
-        use_date: new Date(),
+        user_id: $localStorage.user_id,
+        target_year: currentDate.year,
+        target_month: currentDate.month,
+        use_date: currentDate,
         traffic_type: '1',
         departure_place: '東京',
         arrival_place: '池袋',
@@ -59,42 +56,37 @@ angular.module('clientApp')
       $scope.routeActivePanel = 0
     }
 
-    $scope.onopen = function($event) {
-      // カレンダーを開く
-      $scope.opened = true;
-    };
-
     $scope.selectTrafficType = function(type) {
-      $scope.application_detail.traffic_type = type
+      $scope.application.traffic_type = type
     }
 
     $scope.selectTicketType = function(type) {
-      $scope.application_detail.ticket_type = type
+      $scope.application.ticket_type = type
     }
 
     $scope.setFormValue = function() {
-      if ($scope.application_detail.traffic_type) {
-        $scope.application_detail.traffic_type_view = TRAFFIC_TYPE_NAMES[$scope.application_detail.traffic_type]
+      if ($scope.application.traffic_type) {
+        $scope.application.traffic_type_view = TRAFFIC_TYPE_NAMES[$scope.application.traffic_type]
       } else {
-        $scope.application_detail.traffic_type_view = ""
+        $scope.application.traffic_type_view = ""
       }
 
-      if ($scope.application_detail.ticket_type) {
-        $scope.application_detail.ticket_type_view = TICKET_TYPE_NAMES[$scope.application_detail.ticket_type]
+      if ($scope.application.ticket_type) {
+        $scope.application.ticket_type_view = TICKET_TYPE_NAMES[$scope.application.ticket_type]
       } else {
-        $scope.application_detail.ticket_type_view = ""
+        $scope.application.ticket_type_view = ""
       }
 
-      if ($scope.application_detail.via_place1) {
-        $scope.application_detail.via_place_view = $scope.application_detail.via_place1 + "経由"
+      if ($scope.application.via_place1) {
+        $scope.application.via_place_view = $scope.application.via_place1 + "経由"
       } else {
-        $scope.application_detail.via_place_view = ""
+        $scope.application.via_place_view = ""
       }
 
-      if ($scope.application_detail.departure_place && $scope.application_detail.arrival_place && $scope.application_detail.traffic_type == "1" && $scope.application_detail.ticket_type) {
-        var from = $scope.application_detail.departure_place + "駅"
-        var to = $scope.application_detail.arrival_place + "駅"
-        var params = {from: from, to: to, ticket_type: $scope.application_detail.ticket_type}
+      if ($scope.application.departure_place && $scope.application.arrival_place && $scope.application.traffic_type == "1" && $scope.application.ticket_type) {
+        var from = $scope.application.departure_place + "駅"
+        var to = $scope.application.arrival_place + "駅"
+        var params = {from: from, to: to, ticket_type: $scope.application.ticket_type}
         // 条件に変更がない場合は取得しにいかない
         if (params.from == lastCheckParams.from && params.to == lastCheckParams.to && params.ticket_type == lastCheckParams.ticket_type) {
           return;
@@ -120,17 +112,15 @@ angular.module('clientApp')
 
     $scope.changeActivePanel = function(index, fare) {
       $scope.routeActivePanel = index;
-      $scope.application_detail.fare = fare;
+      $scope.application.fare = fare;
     }
 
     $scope.saveApplication = function() {
       var currentDate = new Date();
-      $scope.application.apply_date = currentDate;
+      $scope.application.target_year = $scope.application.use_date.getFullYear()
+      $scope.application.target_month = $scope.application.use_date.getMonth() + 1
       $scope.application.created_at = currentDate;
       $scope.application.updated_at = currentDate;
-      $scope.application_detail.created_at = currentDate;
-      $scope.application_detail.updated_at = currentDate;
-      $scope.application.details = $scope.application_detail;
       Application.post($scope.application).then(function(){
         $location.path('/applications')
       })
