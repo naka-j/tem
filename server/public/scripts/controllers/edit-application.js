@@ -51,6 +51,8 @@ angular.module('clientApp')
       }
 
       $scope.setFormValue = function() {
+        $scope.routeErrors = []
+
         if ($scope.application.traffic_type) {
           $scope.application.traffic_type_view = TRAFFIC_TYPE_NAMES[$scope.application.traffic_type]
         } else {
@@ -77,10 +79,11 @@ angular.module('clientApp')
           if (params.from == lastCheckParams.from && params.to == lastCheckParams.to && params.ticket_type == lastCheckParams.ticket_type) {
             return;
           }
+          $scope.isRouteSearching = true;
           $http({
           	method : 'GET',
-            url : 'api/y_transit_info?from=' + params.from + '&' + 'to=' + params.to + '&' + 'ticket=' + params.ticket_type,
-            // url : 'http://localhost:3000/api/y_transit_info?from=' + params.from + '&' + 'to=' + params.to + '&' + 'ticket=' + params.ticket_type,
+          	url : 'api/y_transit_info?from=' + params.from + '&' + 'to=' + params.to + '&' + 'ticket=' + params.ticket_type,
+          	// url : 'http://localhost:3000/api/y_transit_info?from=' + params.from + '&' + 'to=' + params.to + '&' + 'ticket=' + params.ticket_type,
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded'
             }
@@ -90,9 +93,14 @@ angular.module('clientApp')
               return;
             }
             $scope.routes_info = response.routes;
+            $scope.application.fare = response.routes[0].fare
             lastCheckParams = params
-          }).error(function (response) {
-            // $scope.errors.push(response.message);
+            $scope.isRouteSearching = false;
+          }).error(function (response, status) {
+            if (status == -1) {
+              $scope.routeErrors.push("エラーが発生しました。");
+            }
+            $scope.isRouteSearching = false;
           });
         }
       }
