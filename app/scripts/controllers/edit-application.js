@@ -82,8 +82,8 @@ angular.module('clientApp')
           $scope.isRouteSearching = true;
           $http({
           	method : 'GET',
-          	url : 'api/y_transit_info?from=' + params.from + '&' + 'to=' + params.to + '&' + 'ticket=' + params.ticket_type,
-          	// url : 'http://localhost:3000/api/y_transit_info?from=' + params.from + '&' + 'to=' + params.to + '&' + 'ticket=' + params.ticket_type,
+          	// url : 'api/y_transit_info?from=' + params.from + '&' + 'to=' + params.to + '&' + 'ticket=' + params.ticket_type,
+          	url : 'http://localhost:3000/api/y_transit_info?from=' + params.from + '&' + 'to=' + params.to + '&' + 'ticket=' + params.ticket_type,
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded'
             }
