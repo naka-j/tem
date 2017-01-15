@@ -1,5 +1,22 @@
 <div class="container">
-  <div class="card card-nav-tabs">
+  <div class="alert alert-danger error-alert" ng-show="routeErrors.length">
+    <div class="alert-icon">
+      <i class="material-icons">error_outline</i>
+    </div>
+    <button type="button" ng-click="routeErrors = []" class="close">
+      <span aria-hidden="true"><i class="material-icons">clear</i></span>
+    </button>
+    <b>エラー</b>
+    <ul class="error-list">
+      <li ng-repeat="error in routeErrors">{{error}}</li>
+    </ul>
+
+  </div>
+  <div class="card text-center" ng-show="isRouteSearching">
+    <img src="../../images/light_blue_material_design_loading.gif" />
+    <p class="text-muted">ルート検索中...</p>
+  </div>
+  <div class="card card-nav-tabs" ng-hide="isRouteSearching || routeErrors.length>0">
 		<div class="header header-info">
 			<!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->
 			<div class="nav-tabs-navigation">
@@ -15,13 +32,15 @@
 			</div>
 		</div>
 		<div class="content">
-			<div class="tab-content text-center">
+			<div class="tab-content route-content text-center">
 				<div class="tab-pane" ng-repeat="route in routes_info" ng-class='{"active": ($index == routeActivePanel)}'>
-          <div class="text-left" ng-repeat="station in route.station">
-            <div class="station">{{station}}</div>
-            <div class="line" ng-hide="$last">{{route.line[$index]}}</div>
+          <div class="route-panel">
+            <div class="text-left" ng-repeat="station in route.station">
+              <div class="station">{{station}}</div>
+              <div class="line" ng-hide="$last">{{route.line[$index]}}</div>
+            </div>
           </div>
-          <div class="text-right">{{route.fare}}円</div>
+          <div class="fare-panel text-large text-success text-right">{{route.fare}}円</div>
 				</div>
 			</div>
 		</div>

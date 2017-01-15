@@ -7,7 +7,12 @@ module.exports = function(app, route) {
     .get(function(req, res) {
       var paramsFrom = encodeURIComponent(req.query.from);
       var paramsTo = encodeURIComponent(req.query.to);
-      var paramsTicketType = req.query.ticket;
+      var paramsTicketType;
+      if (req.query.ticket == 1) {
+        paramsTicketType = 'ic'
+      } else {
+        paramsTicketType = 'normal'
+      };
       var baseURL = 'http://transit.loco.yahoo.co.jp/search/result'
       var requestURL = baseURL + '?from=' + paramsFrom + '&to=' + paramsTo + '&ticket=' + paramsTicketType + '&type=5&al=1&shin=1&ex=1&hb=1&lb=1&sr=1&s=0&expkind=1&ws=2&kw='
       console.log(requestURL);
