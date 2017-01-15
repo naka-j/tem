@@ -10,19 +10,19 @@
 							<!--
 								color-classes: "nav-pills-primary", "nav-pills-info", "nav-pills-success", "nav-pills-warning","nav-pills-danger"
 	                        -->
-						<li class="active">
+						<li ng-class='{"active": application.traffic_type == "1"}'>
 							<a role="tab" data-toggle="tab" aria-expanded="true" ng-click="selectTrafficType('1')">
 								<i class="material-icons">directions_transit</i>
 								電車
 							</a>
 						</li>
-						<li class="">
+						<li ng-class='{"active": application.traffic_type == "2"}'>
               <a role="tab" data-toggle="tab" aria-expanded="false" ng-click="selectTrafficType('2')">
 	            	<i class="material-icons">directions_bus</i>
                 バス
               </a>
             </li>
-            <li>
+            <li ng-class='{"active": application.traffic_type == "3"}'>
               <a role="tab" data-toggle="tab" ng-click="selectTrafficType('3')">
 		            <i class="material-icons">directions_car</i>
                   タクシー

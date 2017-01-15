@@ -14,15 +14,22 @@ angular.module('clientApp')
       'AngularJS',
       'Karma'
     ];
+
     $scope.doLogin = function() {
       $scope.errors = [];
 
       var params = {user_id: $scope.userId, password: $scope.password}
       // $http.post('http://localhost:3000/authenticate', $scope.userId)
+
+      if (!$scope.userId) {
+        $scope.errors.push("ユーザーID、パスワードを入力してください。")
+        return;
+      }
+
       $http({
       	method : 'POST',
-      	url : 'authenticate',
-      	// url : 'http://localhost:3000/authenticate',
+      	url : 'api/authenticate',
+      	// url : 'http://localhost:3000/api/authenticate',
         data: params,
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded'
@@ -41,6 +48,11 @@ angular.module('clientApp')
         $location.path('/application/new')
       }).error(function (response) {
         $scope.errors.push(response.message);
+        return;
       });
+    }
+
+    $scope.clearErrors = function() {
+      $scope.errors = [];
     }
   });
