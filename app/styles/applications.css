@@ -13,19 +13,71 @@ html, body {
   padding: 0;
 }
 
-.application-list .row {
-  line-height: 40px;
+.list-header {
+  height: 60px;
+  background-color: #03a9f4;
+  border-bottom: 1px #333 solid;
+  padding-top: 10px;
+}
+
+.list-header .btn-month {
+  height: 40px;
+  width: 40px;
+  min-width: 40px;
+}
+
+.list-header .btn-month .material-icons {
+  font-size: 36px;
+}
+
+
+.application-list .item-row {
+  line-height: 80px;
   border-bottom: 1px #ccc solid;
   background-color: #fff;
-  margin-bottom: 1px;
+  cursor: pointer;
+}
+
+.list-item-date {
+  background-color: #03a9f4;
+  border-radius: 50%;
+  height: 52px;
+  line-height: 52px;
+  margin: 13px 5px 5px;
+  font-size: 24px;
+  font-weight: 600;
+  background-position: center;
+}
+
+.icon-image-bus-white {
+  background-image: url("../images/ic_directions_bus_white_48px.svg");
+}
+.icon-image-car-white {
+  background-image: url("../images/ic_directions_car_white_48px.svg");
+}
+.icon-image-transit-white {
+  background-image: url("../images/ic_directions_transit_white_48px.svg");
+}
+
+.list-item-date-filter {
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.list-item-station {
+  line-height: 40px;
+  font-size: 18px;
+}
+
+.list-item-purpose {
+  line-height: 20px;
+  color: #aaa;
+}
+
+.list-item-fare {
+  font-size: 24px;
 }
 
 .material-icons.md-18 {
   font-size: 18px;
-}
-
-.right-bottom {
-  position: fixed;
-  bottom: 2vh;
-  right: 2vh;
 }

@@ -1,14 +1,36 @@
-<div class="app container" ng-controller='ApplicationsCtrl' ng-init='getAll()'>
+<div class="app container" ng-controller='ApplicationsCtrl' ng-init='init()'>
   <div class="application-list">
-    <a class="item" ng-repeat="application in applications | orderBy: 'use_date': true" ng-href="/#/application/{{application._id}}/edit">
-      <div class="row">
-        <div class="col-xs-2 text-right">{{application.use_date | date: 'd日'}}</div>
-        <div class="col-xs-3 text-right">{{application.departure_place}}</div>
-        <div class="col-xs-1 text-center">~</div>
-        <div class="col-xs-3">{{application.arrival_place}}</div>
-        <div class="col-xs-3 text-right">{{application.fare}}円<i class="material-icons md-18">keyboard_arrow_right</i></div>
+    <div class="row list-header">
+      <div class="col-xs-4 text-left">
+        <button class="btn btn-warning btn-fab btn-month" ng-click="previousMonthList()"><i class="material-icons">chevron_left</i></button>
       </div>
-    </a>
+      <div class="col-xs-4 text-center">
+        <h5>{{target_ym}}</h5>
+      </div>
+      <div class="col-xs-4 text-right">
+        <button class="btn btn-warning btn-fab btn-month" ng-click="nextMonthList()"><i class="material-icons">chevron_right</i></button>
+      </div>
+    </div>
+    <div class="item" ng-repeat="application in applications | orderBy: 'use_date': true" ng-click="jumpToEdit(application)">
+      <div class="row item-row">
+        <div class="col-xs-2 text-center p0">
+          <div class="list-item-date text-primary" ng-class='{"icon-image-transit-white": application.traffic_type == "1", "icon-image-bus-white": application.traffic_type == "2", "icon-image-car-white": application.traffic_type == "3"}'>
+            <div class="list-item-date-filter">
+              {{application.use_date | date: 'd'}}
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-7 text-left">
+          <div class="list-item-station text-muted">
+            {{application.departure_place}}~{{application.arrival_place}}
+          </div>
+          <div class="list-item-purpose">
+            {{application.purpose}}
+          </div>
+        </div>
+        <div class="col-xs-3 p0 text-right text-large text-success list-item-fare">{{application.fare}}円<i class="material-icons md-18 text-primary">keyboard_arrow_right</i></div>
+      </div>
+    </div>
     <div class="text-right right-bottom">
       <a ng-href="/#/application/new" class="btn btn-primary btn-fab btn-round">
 				<i class="material-icons">add</i>

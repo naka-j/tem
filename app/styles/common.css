@@ -39,6 +39,20 @@ ul {
 }
 
 .wrapper {
-  padding-top: 100px;
+  padding-top: 70px;
   height: 100vh;
+}
+
+.m0 {
+  margin: 0;
+}
+
+.p0 {
+  padding: 0;
+}
+
+.right-bottom {
+  position: fixed;
+  bottom: 2vh;
+  right: 2vh;
 }
