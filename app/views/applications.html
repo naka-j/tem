@@ -11,7 +11,7 @@
         <button class="btn btn-warning btn-fab btn-month" ng-click="nextMonthList()"><i class="material-icons">chevron_right</i></button>
       </div>
     </div>
-    <div class="item" ng-repeat="application in applications | orderBy: 'use_date': true" ng-click="jumpToEdit(application)">
+    <div class="items" ng-repeat="application in applications | orderBy: 'use_date': true" ng-click="jumpToEdit(application)">
       <div class="row item-row">
         <div class="col-xs-2 text-center p0">
           <div class="list-item-date text-primary" ng-class='{"icon-image-transit-white": application.traffic_type == "1", "icon-image-bus-white": application.traffic_type == "2", "icon-image-car-white": application.traffic_type == "3"}'>

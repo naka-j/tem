@@ -32,6 +32,25 @@
   padding: 50px 0;
 }
 
+.button-area {
+  position: relative;
+  bottom: 0vh;
+  -webkit-transition: 100ms ease-in-out all;
+  -moz-transition: 100ms ease-in-out all;
+  -ms-transition: 100ms ease-in-out all;
+  -o-transition: 100ms ease-in-out all;
+  transition: 100ms ease-in-out all;
+}
+
+.button-area-input {
+  bottom: 20vh;
+  -webkit-transition: 200ms ease-in-out all;
+  -moz-transition: 200ms ease-in-out all;
+  -ms-transition: 200ms ease-in-out all;
+  -o-transition: 200ms ease-in-out all;
+  transition: 200ms ease-in-out all;
+}
+
 .method-ic {
   float: left;
   margin-left: 30px;

@@ -2,13 +2,17 @@ body {
   background: url("../images/PPH_akihabaranohitogomi-thumb-autox1600-13464.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
   background-size: cover;
-  min-height: 100vh;
 }
 
 ul {
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+nav {
+  position: fixed!important;
+  top: 0;
 }
 
 .error-alert {
@@ -40,7 +44,7 @@ ul {
 
 .wrapper {
   padding-top: 70px;
-  height: 100vh;
+  /*height: 100vh;*/
 }
 
 .m0 {

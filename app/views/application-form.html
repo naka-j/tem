@@ -54,21 +54,23 @@
 
         <!-- Controls -->
         <div class="container">
-          <div class="row">
+          <div class="row button-area" ng-class="{'button-area-input': inputMode}">
             <div class="col-xs-4 text-left">
-              <button ng-show="showPreviousButton" type='button' ng-click="setFormValue()" class="btn btn-simple btn-primary btn-lg" data-target="#carousel-example-generic" data-slide="prev">
-                前
+              <button ng-show="showPreviousButton" class="btn btn-warning btn-fab" ng-click="setFormValue()" data-target="#carousel-example-generic" data-slide="prev">
+                <i class="material-icons">chevron_left</i>
               </button>
+
             </div>
             <div class="col-xs-4 text-center">
-              <button ng-show="showConfirmButton" type='button' ng-click="setFormValue()" class="btn btn-simple btn-primary btn-lg" data-target="#carousel-example-generic" data-slide-to="9">
+              <button ng-show="showConfirmButton" type='button' ng-click="setFormValue()" class="btn btn-simple btn-success btn-lg" data-target="#carousel-example-generic" data-slide-to="9">
                 確認
               </button>
             </div>
             <div class="col-xs-4 text-right">
-              <button ng-show="showNextButton" type='button' ng-click="setFormValue()" class="btn btn-simple btn-primary btn-lg" data-target="#carousel-example-generic" data-slide="next">
-                次
+              <button ng-show="showNextButton" class="btn btn-warning btn-fab" ng-click="setFormValue()" data-target="#carousel-example-generic" data-slide="next">
+                <i class="material-icons">chevron_right</i>
               </button>
+
             </div>
           </div>
         </div>
