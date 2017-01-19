@@ -11,12 +11,12 @@
   padding-bottom: 0;
 }
 
-/*.card-carousel {
-  background-color: rgba(255, 255, 255, 0.4);
-}*/
-
 .card .content {
   padding: 0 20px;
+}
+
+.help-link {
+  
 }
 
 .carousel-inner {
@@ -99,48 +99,3 @@
 .confirm-page .bb1ccc{
   border-bottom: 1px #eee solid;
 }
-
-
-/*.show-form {
-  height: 400px;
-}
-.animate-show {
-    -webkit-transition: 200ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-    -moz-transition: 200ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-    -ms-transition: 200ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-    -o-transition: 200ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-    transition: 200ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-}
-
-.animate-show {
-  position: relative;
-  display: inline-block;
-}
-
-.animate-show.switch-right.ng-hide-remove {
-    left: 100%;
-}
-.animate-show.switch-right.ng-hide-remove.ng-hide-remove-active {
-    left: 0;
-}
-
-.animate-show.switch-right.ng-hide-add {
-    left: 0;
-}
-.animate-show.switch-right.ng-hide-add.ng-hide-add-active{
-    left: -100%;
-}
-
-.animate-show.switch-left.ng-hide-remove {
-    left: -100%;
-}
-.animate-show.switch-left.ng-hide-remove.ng-hide-remove-active {
-    right: 0;
-}
-
-.animate-show.switch-left.ng-hide-add {
-    left: 0;
-}
-.animate-show.switch-left.ng-hide-add.ng-hide-add-active{
-    left: 100%;
-}*/

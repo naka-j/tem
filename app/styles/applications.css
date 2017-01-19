@@ -36,12 +36,14 @@ html, body {
   font-size: 36px;
 }
 
-
 .application-list .item-row {
   line-height: 80px;
-  border-bottom: 1px #ccc solid;
   background-color: #fff;
   cursor: pointer;
+}
+
+.list-top-border {
+  border-top: 1px #ccc solid;
 }
 
 .list-item-date {
@@ -82,8 +84,4 @@ html, body {
 
 .list-item-fare {
   font-size: 24px;
-}
-
-.material-icons.md-18 {
-  font-size: 18px;
 }

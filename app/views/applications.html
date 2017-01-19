@@ -13,14 +13,16 @@
     </div>
     <div class="items" ng-repeat="application in applications | orderBy: 'use_date': true" ng-click="jumpToEdit(application)">
       <div class="row item-row">
-        <div class="col-xs-2 text-center p0">
-          <div class="list-item-date text-primary" ng-class='{"icon-image-transit-white": application.traffic_type == "1", "icon-image-bus-white": application.traffic_type == "2", "icon-image-car-white": application.traffic_type == "3"}'>
+        <div class="col-xs-2 text-center p0" ng-class="{'list-top-border': (applications[applications.length - $index].use_date | date: 'd') != (application.use_date | date: 'd')}">
+          <div ng-show="(applications[applications.length - $index].use_date | date: 'd') != (application.use_date | date: 'd')"
+            class="list-item-date text-primary"
+            ng-class='{"icon-image-transit-white": application.traffic_type == "1", "icon-image-bus-white": application.traffic_type == "2", "icon-image-car-white": application.traffic_type == "3"}'>
             <div class="list-item-date-filter">
               {{application.use_date | date: 'd'}}
             </div>
           </div>
         </div>
-        <div class="col-xs-7 text-left">
+        <div class="col-xs-7 text-left list-top-border">
           <div class="list-item-station text-muted">
             {{application.departure_place}}~{{application.arrival_place}}
           </div>
@@ -28,7 +30,7 @@
             {{application.purpose}}
           </div>
         </div>
-        <div class="col-xs-3 p0 text-right text-large text-success list-item-fare">{{application.fare}}円<i class="material-icons md-18 text-primary">keyboard_arrow_right</i></div>
+        <div class="col-xs-3 p0 text-right text-large text-success list-item-fare list-top-border">{{application.fare}}円<i class="material-icons md-18 text-primary">keyboard_arrow_right</i></div>
       </div>
     </div>
     <div class="text-right right-bottom">
