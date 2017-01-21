@@ -22,7 +22,6 @@
     <link rel="stylesheet" href="./styles/common.css">
     <link rel="stylesheet" href="./styles/login.css">
     <link rel="stylesheet" href="./styles/applications.css">
-    <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
 		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" />
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
@@ -34,11 +33,12 @@
     <!--[if lte IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    <nav class="navbar navbar-transparent navbar-absolute">
-    	<div class="container">
+
+    <nav customDropdown class="navbar navbar-transparent navbar-absolute">
+    	<div class="container" ng-controller="MenuCtrl">
       	<!-- Brand and toggle get grouped for better mobile display -->
       	<div class="navbar-header">
-      		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example">
+      		<button type="button" class="navbar-toggle" ng-init="navbarOpen=false" ng-click="navbarOpen=!navbarOpen">
         		<span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -47,16 +47,15 @@
           <span class="navbar-brand">TravelExpenseManeger</span>
       	</div>
 
-      	<div class="collapse navbar-collapse" id="navigation-example" ng-controller="MenuCtrl">
+      	<div class="navbar-collapse nav-menu" ng-show="navbarOpen">
       		<ul class="nav navbar-nav navbar-right">
-            <li><a ng-href='/#/application/new'>新規</a></li>
-            <li><a ng-href='/#/applications'>一覧</a></li>
-            <li><a hg-href='/#/login' ng-click='doLogout();'>ログアウト</a></li>
+            <li><a ng-href='/#/application/new' ng-click="navbarOpen=false">新規</a></li>
+            <li><a ng-href='/#/applications' ng-click="navbarOpen=false">一覧</a></li>
+            <li><a hg-href='/#/login' ng-click='doLogout();navbarOpen=false;'>ログアウト</a></li>
           </ul>
       	</div>
     	</div>
     </nav>
-
     <div class="wrapper">
       <div ng-view=""></div>
     </div>

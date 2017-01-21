@@ -11,12 +11,12 @@
   padding-bottom: 0;
 }
 
-/*.card-carousel {
-  background-color: rgba(255, 255, 255, 0.4);
-}*/
-
 .card .content {
   padding: 0 20px;
+}
+
+.help-link {
+
 }
 
 .carousel-inner {
@@ -30,6 +30,25 @@
   -o-transition: 300ms ease-in-out all;
   transition: 300ms ease-in-out all;
   padding: 50px 0;
+}
+
+.button-area {
+  position: relative;
+  bottom: 0vh;
+  -webkit-transition: 100ms ease-in-out all;
+  -moz-transition: 100ms ease-in-out all;
+  -ms-transition: 100ms ease-in-out all;
+  -o-transition: 100ms ease-in-out all;
+  transition: 100ms ease-in-out all;
+}
+
+.button-area-input {
+  bottom: 20vh;
+  -webkit-transition: 200ms ease-in-out all;
+  -moz-transition: 200ms ease-in-out all;
+  -ms-transition: 200ms ease-in-out all;
+  -o-transition: 200ms ease-in-out all;
+  transition: 200ms ease-in-out all;
 }
 
 .method-ic {
@@ -74,6 +93,52 @@
 
 }
 
+.confirm-back-view {
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 70px;
+  height: 90vh;
+  width: 100%;
+  z-index: 1
+}
+.confirm-back-view.ng-hide-remove{
+  opacity: 0;
+}
+.confirm-back-view.ng-hide-remove-active {
+  opacity: 1;
+}
+.confirm-back-view.ng-hide-add {
+  opacity: 1;
+}
+.confirm-back-view.ng-hide-add-active {
+  opacity: 0;
+}
+
+.confirm-view {
+  position: fixed;
+  top: 120px;
+  width: 100%;
+  z-index: 2;
+  -webkit-transition: all 500ms cubic-bezier(0.520, 0.160, 0.015, 1);
+  -webkit-transition: all 500ms cubic-bezier(0.520, 0.160, 0.015, 1.550);
+  -moz-transition: all 500ms cubic-bezier(0.520, 0.160, 0.015, 1.550);
+  -o-transition: all 500ms cubic-bezier(0.520, 0.160, 0.015, 1.550);
+  transition: all 500ms cubic-bezier(0.520, 0.160, 0.015, 1.550);
+}
+
+.confirm-view.ng-hide-remove{
+  top: 110vh;
+}
+.confirm-view.ng-hide-remove-active{
+  top: 120px;
+}
+.confirm-view.ng-hide-add {
+  top: 120px;
+}
+.confirm-view.ng-hide-add-active {
+  top: 110vh;
+}
+
 .confirm-page .row{
   line-height: 40px;
 }
@@ -81,47 +146,11 @@
   border-bottom: 1px #eee solid;
 }
 
-
-/*.show-form {
-  height: 400px;
-}
-.animate-show {
-    -webkit-transition: 200ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-    -moz-transition: 200ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-    -ms-transition: 200ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-    -o-transition: 200ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-    transition: 200ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+.confirm-page-card {
+  height: 75vh;
 }
 
-.animate-show {
+.confirm-button-area {
   position: relative;
-  display: inline-block;
+  bottom: -100px;
 }
-
-.animate-show.switch-right.ng-hide-remove {
-    left: 100%;
-}
-.animate-show.switch-right.ng-hide-remove.ng-hide-remove-active {
-    left: 0;
-}
-
-.animate-show.switch-right.ng-hide-add {
-    left: 0;
-}
-.animate-show.switch-right.ng-hide-add.ng-hide-add-active{
-    left: -100%;
-}
-
-.animate-show.switch-left.ng-hide-remove {
-    left: -100%;
-}
-.animate-show.switch-left.ng-hide-remove.ng-hide-remove-active {
-    right: 0;
-}
-
-.animate-show.switch-left.ng-hide-add {
-    left: 0;
-}
-.animate-show.switch-left.ng-hide-add.ng-hide-add-active{
-    left: 100%;
-}*/

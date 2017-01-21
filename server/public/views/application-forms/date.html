@@ -14,7 +14,7 @@
 							<i class="fa fa-edit"></i>
 						</span>
 						<div class="form-group label-static">
-              <input class="form-control" type="date" ng-model="application.use_date" >
+              <input class="form-control" type="date" ng-model="application.use_date" ng-focus="changeInputMode(true)" ng-blur="changeInputMode(false)">
               <span class="material-input"></span>
 						</div>
 					</div>

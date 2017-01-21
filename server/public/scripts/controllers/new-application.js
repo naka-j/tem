@@ -136,47 +136,11 @@ angular.module('clientApp')
       })
     }
 
-    // テストデータ作成用のメソッド（仮）
-    function GenerateTestData(user_id) {
-      var currentDate = new Date();
-      return {
-        user_id: user_id,
-        target_month: 12,
-        apply_date: currentDate,
-        total_fare: 270,
-        manage_user_id: '',
-        created_at: currentDate,
-        updated_at: currentDate,
-        details: [
-          {
-            use_date: currentDate,
-            traffic_type: '1',
-            use_line: '東京メトロ　丸ノ内線',
-            departure_place: '東京駅',
-            arrival_place: '池袋駅',
-            ticket_type: '1',
-            round_trip_flag: false,
-            fare: 270,
-            manual_input_flag: false,
-            purpose: 'お客様先、面談のため',
-            created_at: currentDate,
-            updated_at: currentDate,
-          },
-          {
-            use_date: currentDate,
-            traffic_type: '1',
-            use_line: '東京メトロ　丸ノ内線',
-            departure_place: '池袋駅',
-            arrival_place: '淡路町',
-            ticket_type: '1',
-            round_trip_flag: false,
-            fare: 150,
-            manual_input_flag: false,
-            purpose: '帰宅',
-            created_at: currentDate,
-            updated_at: currentDate,
-          }
-        ]
-      }
+    $scope.changeInputMode = function(inputMode) {
+      $scope.inputMode = inputMode;
+    }
+
+    $scope.closeConfirm = function() {
+      $scope.confirming = false;
     }
   });

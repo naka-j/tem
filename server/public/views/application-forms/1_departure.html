@@ -11,7 +11,7 @@
 							<i class="fa fa-edit"></i>
 						</span>
 						<div class="form-group is-empty">
-							<input type="text" class="form-control" placeholder="出発駅／出発地"  ng-model="application.departure_place"><span class="material-input"></span>
+							<input type="text" class="form-control" placeholder="出発駅／出発地"  ng-model="application.departure_place" ng-focus="changeInputMode(true)" ng-blur="changeInputMode(false)"><span class="material-input"></span>
 						</div>
 						<span class="input-group-addon">駅</span>
 					</div>

@@ -111,9 +111,21 @@ angular.module('clientApp')
       }
 
       $scope.saveApplication = function() {
+        var currentDate = new Date();
+        $scope.application.target_year = $scope.application.use_date.getFullYear()
+        $scope.application.target_month = $scope.application.use_date.getMonth() + 1
+        $scope.application.updated_at = currentDate;
         $scope.application.save().then(function() {
           $location.path('/applications')
         })
+      }
+
+      $scope.changeInputMode = function(inputMode) {
+        $scope.inputMode = inputMode;
+      }
+
+      $scope.closeConfirm = function() {
+        $scope.confirming = false;
       }
     })
   });
