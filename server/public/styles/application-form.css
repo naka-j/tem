@@ -20,7 +20,7 @@
 }
 
 .carousel-inner {
-  height: 60vh;
+  height: 58vh;
 }
 
 .carousel-inner > .item {
@@ -97,9 +97,10 @@
   background-color: rgba(0, 0, 0, 0.7);
   position: fixed;
   top: 70px;
+  left: 0;
   height: 90vh;
   width: 100%;
-  z-index: 1
+  z-index: 1;
   -webkit-transition: 200ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
   -moz-transition: 200ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
   -ms-transition: 200ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
@@ -122,6 +123,7 @@
 .confirm-view {
   position: fixed;
   top: 120px;
+  left: 0;
   width: 100%;
   z-index: 2;
   -webkit-transition: all 500ms cubic-bezier(0.520, 0.160, 0.015, 1);
@@ -152,10 +154,10 @@
 }
 
 .confirm-card {
-  height: 75vh;
+  height: 70vh;
 }
 
 .confirm-button-area {
   position: relative;
-  bottom: -100px;
+  bottom: -70px;
 }
