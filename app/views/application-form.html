@@ -62,6 +62,8 @@
           </div>
 
         </div>
+
+
         <div class="confirm-back-view" ng-show="confirming"></div>
         <div class="confirm-view" ng-show="confirming">
           <ng-include src="'views/application-forms/confirm.html'"></ng-include>
@@ -76,7 +78,7 @@
 
             </div>
             <div class="col-xs-4 text-center">
-              <button ng-show="showConfirmButton" type='button' ng-click="setFormValue();confirming=true;" class="btn btn-simple btn-success btn-lg">
+              <button ng-show="showConfirmButton" type='button' ng-click="setFormValue();openConfirm();" class="btn btn-simple btn-success btn-lg">
                 確認
               </button>
             </div>

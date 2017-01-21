@@ -33,33 +33,33 @@
     <!--[if lte IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
+    <div ng-controller="MenuCtrl">
+      <nav class="navbar navbar-transparent navbar-absolute">
+      	<div class="container">
+        	<!-- Brand and toggle get grouped for better mobile display -->
+        	<div class="navbar-header">
+        		<button type="button" class="navbar-toggle" ng-init="closeNavbar()" ng-click="toggleNavbar()">
+          		<span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+        		</button>
+            <span class="navbar-brand">TravelExpenseManeger</span>
+        	</div>
 
-    <nav customDropdown class="navbar navbar-transparent navbar-absolute">
-    	<div class="container" ng-controller="MenuCtrl">
-      	<!-- Brand and toggle get grouped for better mobile display -->
-      	<div class="navbar-header">
-      		<button type="button" class="navbar-toggle" ng-init="navbarOpen=false" ng-click="navbarOpen=!navbarOpen">
-        		<span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-      		</button>
-          <span class="navbar-brand">TravelExpenseManeger</span>
+        	<div class="navbar-collapse nav-menu" ng-show="navbarOpened">
+        		<ul class="nav navbar-nav navbar-right">
+              <li><a ng-href='/#/application/new' ng-click="closeNavbar()">新規</a></li>
+              <li><a ng-href='/#/applications' ng-click="closeNavbar()">一覧</a></li>
+              <li><a hg-href='/#/login' ng-click='doLogout();closeNavbar();'>ログアウト</a></li>
+            </ul>
+        	</div>
       	</div>
-
-      	<div class="navbar-collapse nav-menu" ng-show="navbarOpen">
-      		<ul class="nav navbar-nav navbar-right">
-            <li><a ng-href='/#/application/new' ng-click="navbarOpen=false">新規</a></li>
-            <li><a ng-href='/#/applications' ng-click="navbarOpen=false">一覧</a></li>
-            <li><a hg-href='/#/login' ng-click='doLogout();navbarOpen=false;'>ログアウト</a></li>
-          </ul>
-      	</div>
-    	</div>
-    </nav>
-    <div class="wrapper">
-      <div ng-view=""></div>
+      </nav>
+      <div class="wrapper" ng-click="closeNavbar()">
+        <div ng-view=""></div>
+      </div>
     </div>
-
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>

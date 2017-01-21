@@ -18,6 +18,18 @@ angular.module('clientApp')
     $scope.doLogout = function() {
       $localStorage.token = '';
       $localStorage.user_id = '';
-      $location.path('/login')
+      $location.path('/login');
+    }
+
+    $scope.openNavbar = function() {
+      $scope.navbarOpened = true;
+    }
+
+    $scope.closeNavbar = function() {
+      $scope.navbarOpened = false;
+    }
+
+    $scope.toggleNavbar = function() {
+      $scope.navbarOpened = !$scope.navbarOpened;
     }
   });

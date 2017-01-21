@@ -1,4 +1,8 @@
 body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #333;
   background: url("../images/PPH_akihabaranohitogomi-thumb-autox1600-13464.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
   background-size: cover;
