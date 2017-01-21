@@ -7,21 +7,15 @@
 			<div class="container">
 				<div class="row bb1ccc">
 					<div class="col-xs-3 text-left">利用日</div>
-					<div class="col-xs-7 text-right">{{application.use_date | date: 'yyyy/M/d'}}</div>
-					<div class="col-xs-2 text-right text-success">
-					</div>
+					<div class="col-xs-9 text-right">{{application.use_date | date: 'yyyy/M/d'}}</div>
 				</div>
 				<div class="row bb1ccc">
 					<div class="col-xs-3 text-left">目的</div>
-					<div class="col-xs-7 text-right">{{application.purpose}}</div>
-					<div class="col-xs-2 text-right text-success">
-					</div>
+					<div class="col-xs-9 text-right">{{application.purpose}}</div>
 				</div>
 				<div class="row bb1ccc">
 					<div class="col-xs-4 text-left">交通手段</div>
-					<div class="col-xs-6 text-right">{{application.traffic_type_view}}</div>
-					<div class="col-xs-2 text-right text-success">
-					</div>
+					<div class="col-xs-8 text-right">{{application.traffic_type_view}}</div>
 				</div>
 				<div class="row">
 					<div class="col-xs-4 text-left">利用ルート</div>
@@ -41,33 +35,35 @@
 
 				<div class="row bb1ccc">
 					<div class="col-xs-5 text-left">支払い方法</div>
-					<div class="col-xs-5 text-right">{{application.ticket_type_view}}</div>
-					<div class="col-xs-2 text-right text-success">
-					</div>
+					<div class="col-xs-7 text-right">{{application.ticket_type_view}}</div>
 				</div>
 				<div class="row bb1ccc">
 					<div class="col-xs-4 text-left"></div>
-					<div class="col-xs-3 text-right">料金</div>
-					<div class="col-xs-3 text-right" ng-show="isRouteSearching">
-						<img src="../../images/light_blue_material_design_loading.gif" style="width:38px;height:38px;" />
-					</div>
-					<div class="col-xs-3 text-right text-danger" ng-hide="isRouteSearching">{{application.fare}}円</div>
-					<div class="col-xs-2 text-right text-success">
-					</div>
+					<div class="col-xs-4 text-right">料金</div>
+					<div class="col-xs-4 text-right text-success" ng-hide="isRouteSearching">{{application.fare}}円</div>
 				</div>
 
 			</div>
 		</div>
-		<div class="text-center row">
-			<div class="col-xs-4">
-				<button class="btn btn-danger btn-simple" ng-click="deleteApplication(application)">削除</button>
+		<div class="row confirm-button-area">
+			<div class="text-center" ng-hide="deleteConfirming">
+				<div class="col-xs-6">
+					<button class="btn btn-danger btn-round" ng-click="toggleConfirmDelete()">削除</button>
+				</div>
+	      <div class="col-xs-6">
+	        <button class="btn btn-primary btn-round" ng-click="jumpToEdit(application)">編集</button>
+	      </div>
 			</div>
-			<div class="col-xs-4">
+			<div class="delete-confirmation" ng-show="deleteConfirming">
+				<div class="col-xs-5 text-muted text-center">削除しますか？</div>
+				<div class="col-xs-7 text-center">
+					<button class="btn btn-muted btn-round" ng-click="toggleConfirmDelete()">戻る</button>
+		      <button class="btn btn-danger btn-round" ng-click="deleteApplication(application)">削除</button>
+	      </div>
+			</div>
+			<div class="text-center">
 				<button class="btn btn-muted btn-simple" ng-click="closeConfirm()">閉じる</button>
 			</div>
-      <div class="col-xs-4">
-        <button class="btn btn-primary btn-simple" ng-click="jumpToEdit(application)">編集</button>
-      </div>
 		</div>
 	</div>
 </div>

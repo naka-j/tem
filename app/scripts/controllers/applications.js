@@ -20,7 +20,8 @@ angular.module('clientApp')
     var month = currentDate.getMonth() + 1;
     // $scope.applications = Application.getList().$object;
     $scope.init = function(){
-      $scope.getApplicationList()
+      $scope.getApplicationList();
+      $scope.deleteConfirming = false;
     }
 
     $scope.getApplicationList = function() {
@@ -55,6 +56,26 @@ angular.module('clientApp')
       } else {
         month = month + 1;
       }
+      $scope.getApplicationList()
+    }
+
+    $scope.openConfirm = function(application) {
+      $scope.application = application;
+      $scope.confirming = true;
+    }
+    $scope.closeConfirm = function() {
+      $scope.confirming = false;
+      $scope.deleteConfirming = false;
+    }
+
+    $scope.toggleConfirmDelete = function() {
+      $scope.deleteConfirming = !$scope.deleteConfirming;
+    }
+
+    $scope.deleteApplication = function(application) {
+      application.remove();
+      $scope.confirming = false;
+      $scope.deleteConfirming = false;
       $scope.getApplicationList()
     }
   });
