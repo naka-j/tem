@@ -11,6 +11,10 @@
         <button class="btn btn-warning btn-fab btn-month" ng-click="nextMonthList()"><i class="material-icons">chevron_right</i></button>
       </div>
     </div>
+    <div class="card text-center" ng-show="isLoadingData">
+      <img src="../images/light_blue_material_design_loading.gif" />
+      <p class="text-muted">読み込み中...</p>
+    </div>
     <div class="items" ng-repeat="application in applications | orderBy: 'use_date': true" ng-click="jumpToEdit(application)">
       <div class="row item-row">
         <div class="col-xs-2 text-center p0" ng-class="{'list-top-border': (applications[applications.length - $index].use_date | date: 'd') != (application.use_date | date: 'd')}">

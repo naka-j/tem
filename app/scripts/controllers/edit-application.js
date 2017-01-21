@@ -123,5 +123,9 @@ angular.module('clientApp')
       $scope.changeInputMode = function(inputMode) {
         $scope.inputMode = inputMode;
       }
+
+      $scope.closeConfirm = function() {
+        $scope.confirming = false;
+      }
     })
   });

@@ -8,7 +8,7 @@
  * Controller of the clientApp
  */
 angular.module('clientApp')
-  .controller('ApplicationsCtrl', function($scope, $location, Application) {
+  .controller('ApplicationsCtrl', function($scope, $location, Application, $localStorage) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -24,8 +24,14 @@ angular.module('clientApp')
     }
 
     $scope.getApplicationList = function() {
+      $scope.isLoadingData = true
       $scope.target_ym = year.toString() + '/' + month.toString();
-      $scope.applications = Application.getList({'target_year': year, 'target_month': month}).$object;
+      $scope.applications = Application.getList({
+        'target_year': year,
+        'target_month': month,
+        'user_id': $localStorage.user_id
+      }).$object
+      $scope.isLoadingData = false
     }
 
     $scope.jumpToEdit = function(application) {

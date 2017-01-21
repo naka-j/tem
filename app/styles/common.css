@@ -40,6 +40,10 @@ nav {
   height: 0;
 }
 
+.wrapper {
+  padding-top: 70px;
+}
+
 .error-alert {
   -webkit-transition: 200ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
   -moz-transition: 200ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
@@ -65,11 +69,6 @@ nav {
 }
 .error-alert.ng-hide-add-active {
   opacity: 0;
-}
-
-.wrapper {
-  padding-top: 70px;
-  height: 100vh;
 }
 
 .m0 {

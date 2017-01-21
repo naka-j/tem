@@ -16,7 +16,7 @@
 }
 
 .help-link {
-  
+
 }
 
 .carousel-inner {
@@ -93,9 +93,64 @@
 
 }
 
+.confirm-back-view {
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 70px;
+  height: 90vh;
+  width: 100%;
+  z-index: 1
+}
+.confirm-back-view.ng-hide-remove{
+  opacity: 0;
+}
+.confirm-back-view.ng-hide-remove-active {
+  opacity: 1;
+}
+.confirm-back-view.ng-hide-add {
+  opacity: 1;
+}
+.confirm-back-view.ng-hide-add-active {
+  opacity: 0;
+}
+
+.confirm-view {
+  position: fixed;
+  top: 120px;
+  width: 100%;
+  z-index: 2;
+  -webkit-transition: all 500ms cubic-bezier(0.520, 0.160, 0.015, 1);
+  -webkit-transition: all 500ms cubic-bezier(0.520, 0.160, 0.015, 1.550);
+  -moz-transition: all 500ms cubic-bezier(0.520, 0.160, 0.015, 1.550);
+  -o-transition: all 500ms cubic-bezier(0.520, 0.160, 0.015, 1.550);
+  transition: all 500ms cubic-bezier(0.520, 0.160, 0.015, 1.550);
+}
+
+.confirm-view.ng-hide-remove{
+  top: 110vh;
+}
+.confirm-view.ng-hide-remove-active{
+  top: 120px;
+}
+.confirm-view.ng-hide-add {
+  top: 120px;
+}
+.confirm-view.ng-hide-add-active {
+  top: 110vh;
+}
+
 .confirm-page .row{
   line-height: 40px;
 }
 .confirm-page .bb1ccc{
   border-bottom: 1px #eee solid;
+}
+
+.confirm-page-card {
+  height: 75vh;
+}
+
+.confirm-button-area {
+  position: relative;
+  bottom: -100px;
 }
