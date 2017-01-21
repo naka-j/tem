@@ -2,13 +2,6 @@
   /*outline: 1px solid red;*/
 }
 
-html, body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  color: #333;
-}
-
 .application-list {
   padding: 0;
   position: relative;
@@ -44,6 +37,9 @@ html, body {
 
 .list-top-border {
   border-top: 1px #ccc solid;
+}
+.list-top-border-none {
+  border-top: 3px #fff solid;
 }
 
 .list-item-date {

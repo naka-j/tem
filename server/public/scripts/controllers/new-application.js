@@ -140,6 +140,9 @@ angular.module('clientApp')
       $scope.inputMode = inputMode;
     }
 
+    $scope.openConfirm = function() {
+      $scope.confirming = true;
+    }
     $scope.closeConfirm = function() {
       $scope.confirming = false;
     }
