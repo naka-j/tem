@@ -20,22 +20,6 @@ angular.module('clientApp')
     // ルート取得：前回のパラメータ保持用
     var lastCheckParams = {}
 
-    $scope.$watch("currentFormNo", function(){
-      if ($scope.currentFormNo == "0") {
-        $scope.showPreviousButton = false;
-        $scope.showConfirmButton = true;
-        $scope.showNextButton = true;
-      } else if ($scope.currentFormNo == "9") {
-        $scope.showPreviousButton = true;
-        $scope.showNextButton = false;
-        $scope.showConfirmButton = false;
-      } else {
-        $scope.showPreviousButton = true;
-        $scope.showNextButton = true;
-        $scope.showConfirmButton = true;
-      }
-    })
-
     Application.one($routeParams.id).get().then(function(application) {
       $scope.routeActivePanel = 0
 
@@ -74,16 +58,20 @@ angular.module('clientApp')
         if ($scope.application.departure_place && $scope.application.arrival_place && $scope.application.traffic_type == "1" && $scope.application.ticket_type) {
           var from = $scope.application.departure_place + "駅"
           var to = $scope.application.arrival_place + "駅"
-          var params = {from: from, to: to, ticket_type: $scope.application.ticket_type}
+          var via1 = $scope.application.via_place1 + "駅"
+          var params = {from: from, to: to, via1: via1, ticket_type: $scope.application.ticket_type}
           // 条件に変更がない場合は取得しにいかない
-          if (params.from == lastCheckParams.from && params.to == lastCheckParams.to && params.ticket_type == lastCheckParams.ticket_type) {
+          if (params.from == lastCheckParams.from
+            && params.to == lastCheckParams.to
+            && params.ticket_type == lastCheckParams.ticket_type
+            && params.via1 == lastCheckParams.via1) {
             return;
           }
           $scope.isRouteSearching = true;
           $http({
           	method : 'GET',
           	// url : 'api/y_transit_info?from=' + params.from + '&' + 'to=' + params.to + '&' + 'ticket=' + params.ticket_type,
-          	url : 'http://localhost:3000/api/y_transit_info?from=' + params.from + '&' + 'to=' + params.to + '&' + 'ticket=' + params.ticket_type,
+          	url : 'http://localhost:3000/api/y_transit_info?from=' + params.from + '&' + 'to=' + params.to + '&' + 'via=' + params.via1 + '&' + 'ticket=' + params.ticket_type,
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded'
             }
