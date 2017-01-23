@@ -14,7 +14,7 @@ angular.module('clientApp')
       'AngularJS',
       'Karma'
     ];
-
+    $scope.menuAvailable = true;
     $scope.doLogout = function() {
       $localStorage.token = '';
       $localStorage.user_id = '';

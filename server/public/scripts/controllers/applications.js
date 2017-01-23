@@ -20,6 +20,8 @@ angular.module('clientApp')
     var month = currentDate.getMonth() + 1;
     // $scope.applications = Application.getList().$object;
     $scope.init = function(){
+      $scope.$parent.$parent.menuAvailable = true;
+
       $scope.getApplicationList();
       $scope.deleteConfirming = false;
     }

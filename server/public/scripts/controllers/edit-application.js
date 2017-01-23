@@ -20,6 +20,8 @@ angular.module('clientApp')
     // ルート取得：前回のパラメータ保持用
     var lastCheckParams = {}
 
+    $scope.$parent.$parent.menuAvailable = true;
+
     Application.one($routeParams.id).get().then(function(application) {
       $scope.routeActivePanel = 0
 
@@ -70,7 +72,7 @@ angular.module('clientApp')
           $scope.isRouteSearching = true;
           $http({
           	method : 'GET',
-            url : 'api/y_transit_info?from=' + params.from + '&' + 'to=' + params.to + '&' + 'via1=' + params.via1  + '&ticket=' + params.ticket_type,
+          	url : 'api/y_transit_info?from=' + params.from + '&' + 'to=' + params.to + '&' + 'via=' + params.via1 + '&' + 'ticket=' + params.ticket_type,
           	// url : 'http://localhost:3000/api/y_transit_info?from=' + params.from + '&' + 'to=' + params.to + '&' + 'via=' + params.via1 + '&' + 'ticket=' + params.ticket_type,
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded'
