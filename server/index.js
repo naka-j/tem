@@ -1,4 +1,5 @@
 var express = require('express');
+var compression = require('compression')
 var mongoose = require('mongoose');
 var methodOverride = require('method-override');
 var bodyParser = require('body-parser');
@@ -6,6 +7,12 @@ var cors = require('cors');
 var _ = require('lodash');
 
 var app = express();
+
+app.use(compression({
+  threshold: 0,
+  level: 9,
+  memlevel: 9
+}))
 
 app.use(express.static(__dirname + '/public'));
 app.engine('html', require('ejs').renderFile);
