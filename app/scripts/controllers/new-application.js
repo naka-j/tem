@@ -44,6 +44,8 @@ angular.module('clientApp')
     // })
 
     $scope.init = function() {
+      $scope.$parent.$parent.menuAvailable = true;
+
       var currentDate = new Date();
       $scope.application = {
         user_id: $localStorage.user_id,

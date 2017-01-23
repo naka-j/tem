@@ -28,8 +28,8 @@ angular.module('clientApp')
 
       $http({
       	method : 'POST',
-      	// url : 'api/authenticate',
-      	url : 'http://localhost:3000/api/authenticate',
+      	url : 'api/authenticate',
+      	// url : 'http://localhost:3000/api/authenticate',
         data: params,
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded'

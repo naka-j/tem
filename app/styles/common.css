@@ -6,7 +6,6 @@ body {
   background: url("../images/PPH_akihabaranohitogomi-thumb-autox1600-13464.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
   background-size: cover;
-  height: 100vh;
 }
 
 ul {
@@ -18,6 +17,10 @@ ul {
 nav {
   position: fixed!important;
   top: 0;
+}
+
+.navbar.navbar-transparent {
+  background-color: rgba(0, 0, 0, 0.6)!important;
 }
 
 .nav-menu {

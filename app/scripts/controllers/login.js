@@ -15,6 +15,10 @@ angular.module('clientApp')
       'Karma'
     ];
 
+    $scope.init = function() {
+      $scope.$parent.$parent.menuAvailable = false;
+    }
+
     $scope.doLogin = function() {
       $scope.errors = [];
 

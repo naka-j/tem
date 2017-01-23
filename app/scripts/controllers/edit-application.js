@@ -20,6 +20,8 @@ angular.module('clientApp')
     // ルート取得：前回のパラメータ保持用
     var lastCheckParams = {}
 
+    $scope.$parent.$parent.menuAvailable = true;
+
     Application.one($routeParams.id).get().then(function(application) {
       $scope.routeActivePanel = 0
 
