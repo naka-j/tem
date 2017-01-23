@@ -1,3 +1,94 @@
-<!doctype html> <html> <head> <meta charset="utf-8"> <title>Travel Expense Manager</title> <meta name="description" content=""> <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0" name="viewport"> <!-- Place favicon.ico and apple-touch-icon.png in the root directory --> <link rel="stylesheet" href="styles/vendor.4d6a741d.css"> <link rel="stylesheet" href="styles/main.3e5dd29e.css"> </head> <body ng-app="clientApp" ng-cloak> <!--[if lte IE 8]>
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Travel Expense Manager</title>
+    <meta name="description" content="">
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css" />
+    <link rel="stylesheet" href="bower_components/nouislider/distribute/nouislider.min.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <!-- <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/common.css">
+    <link rel="stylesheet" href="styles/login.css">
+    <link rel="stylesheet" href="styles/applications.css"> -->
+    <link rel="stylesheet" href="../bower_components/material-kit/assets/css/material-kit.css">
+    <link rel="stylesheet" href="./styles/common.css">
+    <link rel="stylesheet" href="./styles/login.css">
+    <link rel="stylesheet" href="./styles/applications.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+
+    <link rel="stylesheet" href="styles/application-form.css">
+    <!-- endbuild -->
+  </head>
+  <body ng-app="clientApp" ng-cloak>
+    <!--[if lte IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]--> <div ng-controller="MenuCtrl"> <nav class="navbar navbar-transparent navbar-absolute"> <div class="container"> <!-- Brand and toggle get grouped for better mobile display --> <div class="navbar-header"> <button type="button" class="navbar-toggle" ng-show="menuAvailable" ng-init="closeNavbar()" ng-click="toggleNavbar()"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> <span class="navbar-brand">TravelExpenseManeger</span> </div> <div class="navbar-collapse nav-menu" ng-show="navbarOpened"> <ul class="nav navbar-nav navbar-right"> <li><a ng-href="/#/application/new" ng-click="closeNavbar()">新規</a></li> <li><a ng-href="/#/applications" ng-click="closeNavbar()">一覧</a></li> <li><a hg-href="/#/login" ng-click="doLogout();closeNavbar();">ログアウト</a></li> </ul> </div> </div> </nav> <div class="wrapper" ng-click="closeNavbar()"> <div ng-view=""></div> </div> </div> <script src="scripts/vendor.fa61317f.js"></script> <script src="scripts/scripts.d5ccd443.js"></script> </body> </html>
+    <![endif]-->
+    <div ng-controller="MenuCtrl">
+      <nav class="navbar navbar-transparent navbar-absolute">
+      	<div class="container">
+        	<!-- Brand and toggle get grouped for better mobile display -->
+        	<div class="navbar-header">
+        		<button type="button" class="navbar-toggle" ng-show="menuAvailable" ng-init="closeNavbar()" ng-click="toggleNavbar()">
+          		<span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+        		</button>
+            <span class="navbar-brand">TravelExpenseManeger</span>
+        	</div>
+
+        	<div class="navbar-collapse nav-menu" ng-show="navbarOpened">
+        		<ul class="nav navbar-nav navbar-right">
+              <li><a ng-href='/#/application/new' ng-click="closeNavbar()">新規</a></li>
+              <li><a ng-href='/#/applications' ng-click="closeNavbar()">一覧</a></li>
+              <li><a hg-href='/#/login' ng-click='doLogout();closeNavbar();'>ログアウト</a></li>
+            </ul>
+        	</div>
+      	</div>
+      </nav>
+      <div class="wrapper" ng-click="closeNavbar()">
+        <div ng-view=""></div>
+      </div>
+    </div>
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/lodash/lodash.js"></script>
+    <script src="bower_components/restangular/dist/restangular.js"></script>
+    <script src="bower_components/ngstorage/ngStorage.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+    <script src="bower_components/nouislider/distribute/nouislider.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="../bower_components/material-kit/assets/js/material-kit.js"></script>
+        <script src="../bower_components/material-kit/assets/js/material.min.js"></script>
+
+        <script src="scripts/app.js"></script>
+        <script src="scripts/controllers/menu.js"></script>
+        <script src="scripts/controllers/applications.js"></script>
+        <script src="scripts/controllers/new-application.js"></script>
+        <script src="scripts/controllers/login.js"></script>
+        <script src="scripts/controllers/edit-application.js"></script>
+        <!-- endbuild -->
+</body>
+</html>
