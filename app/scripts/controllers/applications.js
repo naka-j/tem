@@ -28,7 +28,7 @@ angular.module('clientApp')
 
     $scope.getApplicationList = function() {
       $scope.isLoadingData = true
-      $scope.target_ym = year.toString() + '/' + month.toString();
+      $scope.target_ym = year.toString() + '年' + month.toString() + '月';
       $scope.applications = Application.getList({
         'target_year': year,
         'target_month': month,
