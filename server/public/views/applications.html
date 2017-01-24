@@ -1,19 +1,24 @@
 <div class="app container" ng-controller='ApplicationsCtrl' ng-init='init()'>
-  <div class="application-list">
-    <div class="row list-header">
-      <div class="col-xs-4 text-left">
-        <button class="btn btn-warning btn-fab btn-month" ng-click="previousMonthList()"><i class="material-icons">chevron_left</i></button>
-      </div>
-      <div class="col-xs-4 text-center">
-        <h5>{{target_ym}}</h5>
-      </div>
-      <div class="col-xs-4 text-right">
-        <button class="btn btn-warning btn-fab btn-month" ng-click="nextMonthList()"><i class="material-icons">chevron_right</i></button>
-      </div>
+  <div class="row list-header">
+    <div class="col-xs-4 text-left">
+      <button class="btn btn-warning btn-fab btn-month" ng-click="previousMonthList()"><i class="material-icons">chevron_left</i></button>
     </div>
+    <div class="col-xs-4 text-center">
+      <h5>{{target_ym}}</h5>
+    </div>
+    <div class="col-xs-4 text-right">
+      <button class="btn btn-warning btn-fab btn-month" ng-click="nextMonthList()"><i class="material-icons">chevron_right</i></button>
+    </div>
+  </div>
+  <div class="application-list row">
     <div class="card text-center" ng-show="isLoadingData">
       <img src="../images/light_blue_material_design_loading.gif" />
       <p class="text-muted">読み込み中...</p>
+    </div>
+    <div class="items" ng-show="!isLoadingData && applications.length < 1">
+      <div class="row item-row text-center text-muted">
+        （申請データがありません）
+      </div>
     </div>
     <div class="items" ng-hide="isLoadingData" ng-repeat="application in applications | orderBy: 'use_date': true" ng-click="openConfirm(application)">
       <div class="row item-row">
@@ -37,14 +42,16 @@
         <div class="col-xs-3 p0 text-right text-large text-success list-item-fare list-top-border">{{application.fare}}円<i class="material-icons md-18 text-primary">keyboard_arrow_right</i></div>
       </div>
     </div>
-    <div class="text-right right-bottom">
-      <a ng-href="/#/application/new" class="btn btn-primary btn-fab btn-round">
-				<i class="material-icons">add</i>
-				<div class="ripple-container"></div>
-      </a>
-    </div>
   </div>
+  <div class="row list-footer">
 
+  </div>
+  <div class="text-right right-bottom">
+    <a ng-href="/#/application/new" class="btn btn-primary btn-fab btn-round">
+      <i class="material-icons">add</i>
+      <div class="ripple-container"></div>
+    </a>
+  </div>
   <div class="confirm-back-view" ng-show="confirming"></div>
   <div class="show-view" ng-show="confirming">
     <ng-include src="'views/application-show.html'"></ng-include>

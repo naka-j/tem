@@ -2,12 +2,6 @@
   /*outline: 1px solid red;*/
 }
 
-.application-list {
-  padding: 0;
-  position: relative;
-  top: 60px;
-}
-
 .list-header {
   height: 60px;
   background-color: #03a9f4;
@@ -29,6 +23,24 @@
   font-size: 36px;
 }
 
+.list-footer {
+  height: 60px;
+  background-color: #03a9f4;
+  border-top: 1px #333 solid;
+  padding-top: 10px;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}
+
+.application-list.row {
+  padding: 0 15px;
+  position: relative;
+  top: 60px;
+  height: 72vh;
+  overflow-y: scroll;
+}
+
 .application-list .item-row {
   line-height: 80px;
   background-color: #fff;
@@ -46,6 +58,7 @@
   background-color: #03a9f4;
   border-radius: 50%;
   height: 52px;
+  width: 52px;
   line-height: 52px;
   margin: 13px 5px 5px;
   font-size: 24px;
