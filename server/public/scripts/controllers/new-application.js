@@ -162,4 +162,11 @@ angular.module('clientApp')
     $scope.closeConfirm = function() {
       $scope.confirming = false;
     }
+
+    $scope.openHelp = function() {
+      $scope.helping = true;
+    }
+    $scope.closeHelp = function() {
+      $scope.helping = false;
+    }
   });
