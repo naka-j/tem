@@ -39,6 +39,7 @@
   top: 60px;
   height: 72vh;
   overflow-y: scroll;
+  margin-bottom: 60px;
 }
 
 .application-list .item-row {
