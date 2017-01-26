@@ -8,7 +8,7 @@
  * Controller of the clientApp
  */
 angular.module('clientApp')
-  .controller('NewApplicationCtrl', function ($scope, $http, $location, Application, $localStorage, $timeout) {
+  .controller('NewApplicationCtrl', function ($scope, $http, $location, Application, $localStorage, $cookies) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -62,7 +62,22 @@ angular.module('clientApp')
         purpose: 'お客様先、面談のため'
       }
       $scope.isRouteSearching = true;
-      $scope.routeActivePanel = 0
+      $scope.routeActivePanel = 0;
+
+      if ($cookies.get('never-show-help')) {
+        $scope.noHelp = true;
+      } else {
+        $scope.helping = true;
+      }
+    }
+
+    $scope.changeHelpSetting = function() {
+      if ($scope.noHelp) {
+        $cookies.put('never-show-help', true)
+      } else {
+        $cookies.remove('never-show-help')
+      }
+
     }
 
     $scope.selectTrafficType = function(type) {
