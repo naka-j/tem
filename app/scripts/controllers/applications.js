@@ -76,6 +76,11 @@ angular.module('clientApp')
 
     $scope.openConfirm = function(application) {
       $scope.application = application;
+      if ($scope.application.purpose.length > 13) {
+        $scope.application.purpose_view = $scope.application.purpose.substr(0, 12) + "..."
+      } else {
+        $scope.application.purpose_view = $scope.application.purpose
+      }
       $scope.confirming = true;
     }
     $scope.closeConfirm = function() {

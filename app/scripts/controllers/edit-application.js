@@ -62,6 +62,12 @@ angular.module('clientApp')
           $scope.application.via_place_view = ""
         }
 
+        if ($scope.application.purpose.length > 10) {
+          $scope.application.purpose_view = $scope.application.purpose.substr(0, 9) + "..."
+        } else {
+          $scope.application.purpose_view = $scope.application.purpose
+        }
+
         if ($scope.application.departure_place && $scope.application.arrival_place && $scope.application.traffic_type == "1" && $scope.application.ticket_type) {
           var from = $scope.application.departure_place + "駅"
           var to = $scope.application.arrival_place + "駅"
