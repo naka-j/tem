@@ -164,6 +164,7 @@ angular.module('clientApp')
     }
 
     $scope.saveApplication = function() {
+      $scope.errors = []
       var currentDate = new Date();
       $scope.application.target_year = $scope.application.use_date.getFullYear()
       $scope.application.target_month = $scope.application.use_date.getMonth() + 1
@@ -171,6 +172,10 @@ angular.module('clientApp')
       $scope.application.updated_at = currentDate;
       Application.post($scope.application).then(function(){
         $location.path('/applications')
+      }, function(response) {
+        if (response.status == 400) {
+          $scope.errors.push(response.data.message);
+        }
       })
     }
 
@@ -183,6 +188,7 @@ angular.module('clientApp')
     }
     $scope.closeConfirm = function() {
       $scope.confirming = false;
+      $scope.errors = []
     }
 
     $scope.openHelp = function() {
