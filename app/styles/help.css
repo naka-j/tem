@@ -57,7 +57,6 @@
   bottom: 0vh;
 }
 
-
 .trial-text {
   font-size: 12px;
 }
@@ -70,4 +69,8 @@
 
 .help-view .content {
   font-size: 13px;
+}
+
+.card-signup .checkbox {
+    margin-top: 10px;
 }

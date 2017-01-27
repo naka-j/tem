@@ -31,21 +31,31 @@
   width: 100%;
   position: fixed;
   bottom: 0;
+  color: rgb(235, 255, 0);
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.total-fare {
+  font-size: 36px;
 }
 
 .application-list.row {
   padding: 0 15px;
   position: relative;
   top: 60px;
-  height: 72vh;
-  overflow-y: scroll;
-  margin-bottom: 60px;
 }
 
 .application-list .item-row {
   line-height: 80px;
   background-color: #fff;
   cursor: pointer;
+}
+
+.item-row-bottom {
+  height: 60px;
+  background-color: transparent;
+  cursor: default;
 }
 
 .list-top-border {

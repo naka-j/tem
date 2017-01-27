@@ -124,6 +124,7 @@ angular.module('clientApp')
           && params.via1 == lastCheckParams.via1) {
           return;
         }
+        $scope.noRoute = false;
         $scope.isRouteSearching = true;
         $http({
         	method : 'GET',
@@ -138,7 +139,12 @@ angular.module('clientApp')
             return;
           }
           $scope.routes_info = response.routes;
-          $scope.application.fare = response.routes[0].fare
+          if (response.routes[0] == undefined) {
+            $scope.noRoute = true;
+            $scope.application.fare = 0;
+          } else {
+            $scope.application.fare = response.routes[0].fare;
+          }
           lastCheckParams = params
           $scope.isRouteSearching = false;
         }).error(function (response, status) {

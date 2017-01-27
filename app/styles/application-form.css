@@ -34,7 +34,7 @@
 
 .button-area {
   position: relative;
-  bottom: 0vh;
+  bottom: 1vh;
   -webkit-transition: 100ms ease-in-out all;
   -moz-transition: 100ms ease-in-out all;
   -ms-transition: 100ms ease-in-out all;
