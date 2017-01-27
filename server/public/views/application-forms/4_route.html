@@ -16,7 +16,11 @@
     <img src="../../images/light_blue_material_design_loading.gif" />
     <p class="text-muted">ルート検索中...</p>
   </div>
-  <div class="card card-nav-tabs" ng-hide="isRouteSearching || routeErrors.length>0">
+  <div class="card text-center" ng-show="noRoute">
+    <img src="../../images/cross.svg" />
+    <p class="text-muted">ルート候補なし</p>
+  </div>
+  <div class="card card-nav-tabs" ng-hide="isRouteSearching || noRoute || routeErrors.length>0">
 		<div class="header header-info">
 			<!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->
 			<div class="nav-tabs-navigation">

@@ -20,10 +20,10 @@
         （申請データがありません）
       </div>
     </div>
-    <div class="items" ng-hide="isLoadingData" ng-repeat="application in applications | orderBy: 'use_date': true" ng-click="openConfirm(application)">
+    <div class="items" ng-hide="isLoadingData" ng-repeat="application in applications" ng-click="openConfirm(application)">
       <div class="row item-row">
-        <div class="col-xs-2 text-center p0" ng-class="{'list-top-border': (applications[applications.length - $index].use_date | date: 'd') != (application.use_date | date: 'd'), 'list-top-border-none': (applications[applications.length - $index].use_date | date: 'd') == (application.use_date | date: 'd')}">
-          <div ng-show="(applications[applications.length - $index].use_date | date: 'd') != (application.use_date | date: 'd')"
+        <div class="col-xs-2 text-center p0" ng-class="{'list-top-border': (applications[$index - 1].use_date | date: 'd') != (application.use_date | date: 'd'), 'list-top-border-none': (applications[$index - 1].use_date | date: 'd') == (application.use_date | date: 'd')}">
+          <div ng-show="(applications[$index - 1].use_date | date: 'd') != (application.use_date | date: 'd')"
             class="list-item-date text-primary"
             ng-class='{"icon-image-transit-white": application.traffic_type == "1", "icon-image-bus-white": application.traffic_type == "2", "icon-image-car-white": application.traffic_type == "3"}'>
             <div class="list-item-date-filter">
@@ -42,9 +42,10 @@
         <div class="col-xs-3 p0 text-right text-large text-success list-item-fare list-top-border">{{application.fare}}円<i class="material-icons md-18 text-primary">keyboard_arrow_right</i></div>
       </div>
     </div>
+    <div class="row item-row-bottom"></div>
   </div>
-  <div class="row list-footer">
-
+  <div class="row list-footer text-center">
+    <span class="total-fare">{{getTotalFare()}}</span>円
   </div>
   <div class="text-right right-bottom">
     <a ng-href="/#/application/new" class="btn btn-primary btn-fab btn-round">

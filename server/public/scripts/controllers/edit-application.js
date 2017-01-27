@@ -8,7 +8,7 @@
  * Controller of the clientApp
  */
 angular.module('clientApp')
-  .controller('EditApplicationCtrl', function ($scope, $location, $routeParams, Application, $localStorage, $http) {
+  .controller('EditApplicationCtrl', function ($scope, $location, $routeParams, Application, $localStorage, $http, $cookies) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -21,6 +21,11 @@ angular.module('clientApp')
     var lastCheckParams = {}
 
     $scope.$parent.$parent.menuAvailable = true;
+    if ($cookies.get('never-show-help')) {
+      $scope.noHelp = true;
+    } else {
+      $scope.helping = true;
+    }
 
     Application.one($routeParams.id).get().then(function(application) {
       $scope.routeActivePanel = 0
@@ -60,7 +65,10 @@ angular.module('clientApp')
         if ($scope.application.departure_place && $scope.application.arrival_place && $scope.application.traffic_type == "1" && $scope.application.ticket_type) {
           var from = $scope.application.departure_place + "駅"
           var to = $scope.application.arrival_place + "駅"
-          var via1 = $scope.application.via_place1 + "駅"
+          var via1 = "";
+          if ($scope.application.via_place1) {
+            via1 = $scope.application.via_place1 + "駅"
+          }
           var params = {from: from, to: to, via1: via1, ticket_type: $scope.application.ticket_type}
           // 条件に変更がない場合は取得しにいかない
           if (params.from == lastCheckParams.from
@@ -69,21 +77,27 @@ angular.module('clientApp')
             && params.via1 == lastCheckParams.via1) {
             return;
           }
+          $scope.noRoute = false;
           $scope.isRouteSearching = true;
           $http({
           	method : 'GET',
           	url : 'api/y_transit_info?from=' + params.from + '&' + 'to=' + params.to + '&' + 'via1=' + params.via1 + '&' + 'ticket=' + params.ticket_type,
-          	// url : 'http://localhost:3000/api/y_transit_info?from=' + params.from + '&' + 'to=' + params.to + '&' + 'via=' + params.via1 + '&' + 'ticket=' + params.ticket_type,
+          	// url : 'http://localhost:3000/api/y_transit_info?from=' + params.from + '&' + 'to=' + params.to + '&' + 'via1=' + params.via1 + '&' + 'ticket=' + params.ticket_type,
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded'
             }
           }).success(function (response) {
             // If successful we assign the response to the global user model
-            if (!response.success) {
+            if (!response.success || response.routes.length < 1) {
               return;
             }
             $scope.routes_info = response.routes;
-            $scope.application.fare = response.routes[0].fare
+            if (response.routes[0] == undefined) {
+              $scope.noRoute = true;
+              $scope.application.fare = 0;
+            } else {
+              $scope.application.fare = response.routes[0].fare;
+            }
             lastCheckParams = params
             $scope.isRouteSearching = false;
           }).error(function (response, status) {

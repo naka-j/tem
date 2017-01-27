@@ -29,12 +29,25 @@ angular.module('clientApp')
     $scope.getApplicationList = function() {
       $scope.isLoadingData = true
       $scope.target_ym = year.toString() + '年' + month.toString() + '月';
-      $scope.applications = Application.getList({
+      Application.getList({
         'target_year': year,
         'target_month': month,
         'user_id': $localStorage.user_id
-      }).$object
+      }).then(function(applications){
+        $scope.applications = _.sortBy(applications, 'use_date').reverse();
+      });
+
       $scope.isLoadingData = false
+    }
+
+    $scope.getTotalFare = function(){
+      var total = 0;
+      _.each($scope.applications, function(application){
+        if (application.fare) {
+          total += application.fare
+        }
+      });
+      return total;
     }
 
     $scope.jumpToEdit = function(application) {
