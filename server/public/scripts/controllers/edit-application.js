@@ -62,6 +62,12 @@ angular.module('clientApp')
           $scope.application.via_place_view = ""
         }
 
+        if ($scope.application.purpose.length > 10) {
+          $scope.application.purpose_view = $scope.application.purpose.substr(0, 9) + "..."
+        } else {
+          $scope.application.purpose_view = $scope.application.purpose
+        }
+
         if ($scope.application.departure_place && $scope.application.arrival_place && $scope.application.traffic_type == "1" && $scope.application.ticket_type) {
           var from = $scope.application.departure_place + "駅"
           var to = $scope.application.arrival_place + "駅"
@@ -115,12 +121,17 @@ angular.module('clientApp')
       }
 
       $scope.saveApplication = function() {
+        $scope.errors = []
         var currentDate = new Date();
         $scope.application.target_year = $scope.application.use_date.getFullYear()
         $scope.application.target_month = $scope.application.use_date.getMonth() + 1
         $scope.application.updated_at = currentDate;
         $scope.application.save().then(function() {
           $location.path('/applications')
+        }, function(response) {
+          if (response.status == 400) {
+            $scope.errors.push(response.data.message);
+          }
         })
       }
 
@@ -133,6 +144,7 @@ angular.module('clientApp')
       }
       $scope.closeConfirm = function() {
         $scope.confirming = false;
+        $scope.errors = []
       }
 
       $scope.openHelp = function() {

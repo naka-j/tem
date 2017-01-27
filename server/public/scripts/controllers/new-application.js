@@ -53,15 +53,15 @@ angular.module('clientApp')
         target_month: currentDate.month,
         use_date: currentDate,
         traffic_type: '1',
-        departure_place: '東京',
-        arrival_place: '池袋',
+        departure_place: '',
+        arrival_place: '',
         ticket_type: '1',
         round_trip_flag: false,
-        fare: 270,
+        fare: 0,
         manual_input_flag: false,
-        purpose: 'お客様先、面談のため'
+        purpose: ''
       }
-      $scope.isRouteSearching = true;
+      $scope.noRoute = true;
       $scope.routeActivePanel = 0;
 
       if ($cookies.get('never-show-help')) {
@@ -108,6 +108,13 @@ angular.module('clientApp')
       } else {
         $scope.application.via_place_view = ""
       }
+
+      if ($scope.application.purpose.length > 10) {
+        $scope.application.purpose_view = $scope.application.purpose.substr(0, 10) + "..."
+      } else {
+        $scope.application.purpose_view = $scope.application.purpose
+      }
+
 
       if ($scope.application.departure_place && $scope.application.arrival_place && $scope.application.traffic_type == "1" && $scope.application.ticket_type) {
         var from = $scope.application.departure_place + "駅"
@@ -157,6 +164,7 @@ angular.module('clientApp')
     }
 
     $scope.saveApplication = function() {
+      $scope.errors = []
       var currentDate = new Date();
       $scope.application.target_year = $scope.application.use_date.getFullYear()
       $scope.application.target_month = $scope.application.use_date.getMonth() + 1
@@ -164,6 +172,10 @@ angular.module('clientApp')
       $scope.application.updated_at = currentDate;
       Application.post($scope.application).then(function(){
         $location.path('/applications')
+      }, function(response) {
+        if (response.status == 400) {
+          $scope.errors.push(response.data.message);
+        }
       })
     }
 
@@ -176,6 +188,7 @@ angular.module('clientApp')
     }
     $scope.closeConfirm = function() {
       $scope.confirming = false;
+      $scope.errors = []
     }
 
     $scope.openHelp = function() {

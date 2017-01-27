@@ -1,14 +1,12 @@
-<div class="alert alert-danger" ng-show='errors.length > 0'>
-  <div class="container-fluid">
-    <div class="alert-icon">
-      <i class="material-icons">error_outline</i>
-    </div>
-    <button type="button" ng-click='errors=[]' class='close'>
-  	  <i class="material-icons">clear</i>
-    </button>
-    <b>Error</b>
-    <ul>
-      <li ng-repeat='error in errors'>{{error}}</li>
-    </ul>
+<div class="alert alert-danger error-alert" ng-show="errors.length">
+  <div class="alert-icon">
+    <i class="material-icons">error_outline</i>
   </div>
+  <button type="button" ng-click="clearErrors()" class="close">
+    <span aria-hidden="true"><i class="material-icons">clear</i></span>
+  </button>
+  <b>エラー</b>
+  <ul class="error-list">
+    <li ng-repeat="error in errors track by $index">{{error}}</li>
+  </ul>
 </div>

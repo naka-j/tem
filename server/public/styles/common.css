@@ -3,7 +3,7 @@ body {
   padding: 0;
   box-sizing: border-box;
   color: #333;
-  background: url("../images/PPH_akihabaranohitogomi-thumb-autox1600-13464.jpg") no-repeat center center fixed;
+  background: url("../images/photo0000-2055.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
   background-size: cover;
 }
@@ -57,7 +57,7 @@ nav {
   -ms-transition: 200ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
   -o-transition: 200ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
   transition: 200ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-  position: absolute;
+  position: fixed;
   top: 100px;
   z-index: 1;
   width: 95%;
