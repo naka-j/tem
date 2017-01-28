@@ -21,9 +21,11 @@ angular.module('clientApp')
     var lastCheckParams = {}
 
     $scope.$parent.$parent.menuAvailable = true;
+
     if ($cookies.get('never-show-help')) {
       $scope.noHelp = true;
     } else {
+      $scope.noHelp = false;
       $scope.helping = true;
     }
 
@@ -102,6 +104,7 @@ angular.module('clientApp')
               $scope.noRoute = true;
               $scope.application.fare = 0;
             } else {
+              $scope.noRoute = false;
               $scope.application.fare = response.routes[0].fare;
             }
             lastCheckParams = params
@@ -122,6 +125,11 @@ angular.module('clientApp')
 
       $scope.saveApplication = function() {
         $scope.errors = []
+        clientCheck()
+        if ($scope.errors.length > 0) {
+          return;
+        }
+
         var currentDate = new Date();
         $scope.application.target_year = $scope.application.use_date.getFullYear()
         $scope.application.target_month = $scope.application.use_date.getMonth() + 1
@@ -133,6 +141,28 @@ angular.module('clientApp')
             $scope.errors.push(response.data.message);
           }
         })
+      }
+
+      var clientCheck = function() {
+        if ($scope.application.use_date == null) {
+          $scope.errors.push('利用日付は必須です。')
+        }
+        if (!$scope.application.departure_place.length) {
+          $scope.errors.push('出発駅／出発地は必須です。')
+        }
+        if (!$scope.application.arrival_place.length) {
+          $scope.errors.push('到着駅／到着地は必須です。')
+        }
+        if (!$scope.application.fare.length) {
+          $scope.errors.push('金額は必須です。')
+        }
+        if ($scope.application.fare.length && $scope.application.fare <= 0) {
+          $scope.errors.push('金額に0円は入力できません。')
+        }
+      }
+
+      $scope.clearErrors = function() {
+        $scope.errors = [];
       }
 
       $scope.changeInputMode = function(inputMode) {
@@ -147,10 +177,18 @@ angular.module('clientApp')
         $scope.errors = []
       }
 
+      $scope.noHelpCheckClick = function() {
+        $scope.noHelp = !$scope.noHelp
+      }
       $scope.openHelp = function() {
         $scope.helping = true;
       }
       $scope.closeHelp = function() {
+        if ($scope.noHelp) {
+          $cookies.put('never-show-help', true)
+        } else {
+          $cookies.remove('never-show-help')
+        }
         $scope.helping = false;
       }
 

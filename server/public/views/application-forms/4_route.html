@@ -8,7 +8,7 @@
     </button>
     <b>エラー</b>
     <ul class="error-list">
-      <li ng-repeat="error in routeErrors">{{error}}</li>
+      <li ng-repeat="error in routeErrors track by $index">{{error}}</li>
     </ul>
 
   </div>
@@ -17,8 +17,7 @@
     <p class="text-muted">ルート検索中...</p>
   </div>
   <div class="card text-center" ng-show="noRoute">
-    <img src="../../images/cross.svg" />
-    <p class="text-muted">ルート候補なし</p>
+    <p class="text-muted">ルート候補を自動で取得できなかったので、次画面にて手動で金額入力をお願いします。</p>
   </div>
   <div class="card card-nav-tabs" ng-hide="isRouteSearching || noRoute || routeErrors.length>0">
 		<div class="header header-info">
@@ -26,7 +25,7 @@
 			<div class="nav-tabs-navigation">
 				<div class="nav-tabs-wrapper">
 					<ul class="nav nav-tabs">
-						<li ng-repeat="route in routes_info" ng-class='{"active": ($index == routeActivePanel)}' >
+						<li ng-repeat="route in routes_info track by $index" ng-class='{"active": ($index == routeActivePanel)}' >
 							<a ng-click="changeActivePanel($index, route.fare)">
 								ルート{{$index + 1}}
 							</a>
@@ -37,9 +36,9 @@
 		</div>
 		<div class="content">
 			<div class="tab-content route-content text-center">
-				<div class="tab-pane" ng-repeat="route in routes_info" ng-class='{"active": ($index == routeActivePanel)}'>
+				<div class="tab-pane" ng-repeat="route in routes_info track by $index" ng-class='{"active": ($index == routeActivePanel)}'>
           <div class="route-panel">
-            <div class="text-left" ng-repeat="station in route.station">
+            <div class="text-left" ng-repeat="station in route.station track by $index">
               <div class="station">{{station}}</div>
               <div class="line" ng-hide="$last">{{route.line[$index]}}</div>
             </div>

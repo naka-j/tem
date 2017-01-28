@@ -14,6 +14,8 @@ angular.module('clientApp')
       'AngularJS',
       'Karma'
     ];
+    var TRAFFIC_TYPE_NAMES = {"1": "電車", "2": "バス", "3": "タクシー"}
+    var TICKET_TYPE_NAMES = {"1": "ICカード", "2": "切符"}
 
     var currentDate = new Date();
     var year = currentDate.getFullYear();
@@ -76,6 +78,23 @@ angular.module('clientApp')
 
     $scope.openConfirm = function(application) {
       $scope.application = application;
+      if ($scope.application.traffic_type) {
+        $scope.application.traffic_type_view = TRAFFIC_TYPE_NAMES[$scope.application.traffic_type]
+      } else {
+        $scope.application.traffic_type_view = ""
+      }
+
+      if ($scope.application.ticket_type) {
+        $scope.application.ticket_type_view = TICKET_TYPE_NAMES[$scope.application.ticket_type]
+      } else {
+        $scope.application.ticket_type_view = ""
+      }
+
+      if ($scope.application.via_place1) {
+        $scope.application.via_place_view = $scope.application.via_place1 + "経由"
+      } else {
+        $scope.application.via_place_view = ""
+      }
       if ($scope.application.purpose.length > 13) {
         $scope.application.purpose_view = $scope.application.purpose.substr(0, 12) + "..."
       } else {

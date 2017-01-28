@@ -24,6 +24,7 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
     <link rel="stylesheet" href="styles/application-form.css">
     <link rel="stylesheet" href="styles/help.css">
+    <link rel="stylesheet" href="styles/media-large-screen.css">
     <!-- endbuild -->
   </head>
   <body ng-app="clientApp" ng-cloak>
@@ -46,6 +47,7 @@
 
         	<div class="navbar-collapse nav-menu" ng-show="navbarOpened">
         		<ul class="nav navbar-nav navbar-right">
+              <li><p class="text-right text-success user-name m0"><i class="material-icons md-18">account_circle</i>{{user_name()}}</p></li>
               <li><a ng-href='/#/application/new' ng-click="closeNavbar()">新規</a></li>
               <li><a ng-href='/#/applications' ng-click="closeNavbar()">一覧</a></li>
               <li><a hg-href='/#/login' ng-click='doLogout();closeNavbar();'>ログアウト</a></li>
@@ -74,6 +76,9 @@
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/material-kit/assets/js/material-kit.js"></script>
+    <script src="bower_components/material-kit/assets/js/material.min.js"></script>
+
     <!-- endbower -->
     <!-- endbuild -->
 

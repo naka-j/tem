@@ -16,8 +16,7 @@ angular.module('clientApp')
     ];
     $scope.menuAvailable = true;
     $scope.doLogout = function() {
-      $localStorage.token = '';
-      $localStorage.user_id = '';
+      $localStorage.$reset()
       $location.path('/login');
     }
 
@@ -31,5 +30,9 @@ angular.module('clientApp')
 
     $scope.toggleNavbar = function() {
       $scope.navbarOpened = !$scope.navbarOpened;
+    }
+
+    $scope.user_name = function() {
+      return $localStorage.user_name
     }
   });

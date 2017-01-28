@@ -46,13 +46,14 @@
   </div>
   <div class="row list-footer text-center">
     <span class="total-fare">{{getTotalFare()}}</span>円
+    <div class="text-right right-bottom">
+      <a ng-href="/#/application/new" class="btn btn-primary btn-fab btn-round">
+        <i class="material-icons">add</i>
+        <div class="ripple-container"></div>
+      </a>
+    </div>
   </div>
-  <div class="text-right right-bottom">
-    <a ng-href="/#/application/new" class="btn btn-primary btn-fab btn-round">
-      <i class="material-icons">add</i>
-      <div class="ripple-container"></div>
-    </a>
-  </div>
+
   <div class="confirm-back-view" ng-show="confirming"></div>
   <div class="show-view" ng-show="confirming">
     <ng-include src="'views/application-show.html'"></ng-include>
