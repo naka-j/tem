@@ -21,6 +21,7 @@ angular.module('clientApp')
     var lastCheckParams = {}
 
     $scope.$parent.$parent.menuAvailable = true;
+    $scope.$parent.$parent.navLogin = false;
 
     if ($cookies.get('never-show-help')) {
       $scope.noHelp = true;

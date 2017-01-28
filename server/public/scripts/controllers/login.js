@@ -17,6 +17,7 @@ angular.module('clientApp')
 
     $scope.init = function() {
       $scope.$parent.$parent.menuAvailable = false;
+      $scope.$parent.$parent.navLogin = true;
     }
 
     $scope.doLogin = function() {

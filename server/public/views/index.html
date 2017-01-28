@@ -45,7 +45,7 @@
             <span class="navbar-brand">TravelExpenseManeger</span>
         	</div>
 
-        	<div class="navbar-collapse nav-menu" ng-show="navbarOpened">
+        	<div class="navbar-collapse nav-menu" ng-class="{'nav-login': navLogin}" ng-show="navbarOpened">
         		<ul class="nav navbar-nav navbar-right">
               <li><p class="text-right text-success user-name m0"><i class="material-icons md-18">account_circle</i>{{user_name()}}</p></li>
               <li><a ng-href='/#/application/new' ng-click="closeNavbar()">新規</a></li>

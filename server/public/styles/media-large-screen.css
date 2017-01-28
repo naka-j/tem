@@ -7,6 +7,9 @@
   .nav-menu.ng-hide {
     display: block!important;
   }
+  .nav-login.nav-menu.ng-hide {
+    display: none!important;
+  }
 }
 
 @media (min-width: 769px) {

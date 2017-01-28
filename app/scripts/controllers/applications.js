@@ -23,6 +23,7 @@ angular.module('clientApp')
     // $scope.applications = Application.getList().$object;
     $scope.init = function(){
       $scope.$parent.$parent.menuAvailable = true;
+      $scope.$parent.$parent.navLogin = false;
 
       $scope.getApplicationList();
       $scope.deleteConfirming = false;

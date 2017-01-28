@@ -20,31 +20,10 @@ angular.module('clientApp')
     // ルート取得：前回のパラメータ保持用
     var lastCheckParams = {}
 
-    // $scope.$watch(function() {
-    //   return angular.element('li[data-slide-to="0"]').attr('class')
-    // }, function(newVal, oldVal){
-    //   if (newVal) {
-    //     // $scope.showPreviousButton = false;
-    //     angular.element('.btn-previous').hide()
-    //   } else {
-    //     // $scope.showPreviousButton = true;
-    //     angular.element('.btn-previous').show()
-    //   }
-    // })
-    // $scope.$watch(function() {
-    //   return angular.element('li[data-slide-to="8"]').attr('class')
-    // }, function(newVal, oldVal){
-    //   if (newVal) {
-    //     // $scope.showNextButton = false;
-    //     angular.element('.btn-next').hide()
-    //   } else {
-    //     // $scope.showNextButton = true;
-    //     angular.element('.btn-next').hide()
-    //   }
-    // })
 
     $scope.init = function() {
       $scope.$parent.$parent.menuAvailable = true;
+      $scope.$parent.$parent.navLogin = false;
 
       var currentDate = new Date();
       $scope.application = {
