@@ -40,6 +40,12 @@
   font-size: 36px;
 }
 
+.right-bottom {
+  position: relative;
+  bottom: 7vh;
+  right: 2vh;
+}
+
 .application-list.row {
   padding: 0 15px;
   position: relative;
@@ -120,7 +126,7 @@
 }
 
 .show-view.ng-hide-remove{
-  left: 100vh;
+  left: 100%;
 }
 .show-view.ng-hide-remove-active{
   left: 0px;
@@ -129,5 +135,5 @@
   left: 0px;
 }
 .show-view.ng-hide-add-active {
-  left: 100vh;
+  left: 100%;
 }

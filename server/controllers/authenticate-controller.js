@@ -41,7 +41,8 @@ module.exports = function(app, route) {
         res.json({
           success: true,
           message: 'Authentication successfully finished.',
-          token: token
+          token: token,
+          user: {id: user.user_id, name: user.name}
         });
       });
     });

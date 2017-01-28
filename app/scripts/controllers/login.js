@@ -46,7 +46,8 @@ angular.module('clientApp')
         }
 
         $localStorage.token = response.token
-        $localStorage.user_id = params.user_id
+        $localStorage.user_id = response.user.id
+        $localStorage.user_name = response.user.name
         console.log("auth successfully!");
 
         $location.path('/application/new')
