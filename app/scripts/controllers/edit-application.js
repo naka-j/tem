@@ -146,7 +146,7 @@ angular.module('clientApp')
 
       var clientCheck = function() {
         if ($scope.application.use_date == null) {
-          $scope.errors.push('利用日付は必須です。')
+          $scope.errors.push('利用日は必須です。')
         }
         if (!$scope.application.departure_place.length) {
           $scope.errors.push('出発駅／出発地は必須です。')
@@ -155,10 +155,10 @@ angular.module('clientApp')
           $scope.errors.push('到着駅／到着地は必須です。')
         }
         if (!$scope.application.fare.length) {
-          $scope.errors.push('金額は必須です。')
+          $scope.errors.push('料金は必須です。')
         }
         if ($scope.application.fare.length && $scope.application.fare <= 0) {
-          $scope.errors.push('金額に0円は入力できません。')
+          $scope.errors.push('料金に0円は入力できません。')
         }
       }
 

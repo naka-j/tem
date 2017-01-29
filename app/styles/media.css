@@ -14,7 +14,7 @@
   .form-card {
     width: 750px;
   }
-  .col-sm-offset-3 {
+  .show-form .col-sm-offset-3 {
     margin: 0;
   }
 
@@ -30,6 +30,10 @@
   .payment-form .content {
     width: 55%;
     margin: auto;
+  }
+
+  .error-alert {
+    width: 720px;
   }
 }
 
@@ -55,6 +59,10 @@
     padding-left: 9%;
     padding-right: 9%;
   }
+
+  .error-alert {
+    width: 941px;
+  }
 }
 
 @media (min-width: 1200px) {
@@ -68,6 +76,9 @@
   .transportation-form .content  li {
     padding-left: 10%;
     padding-right: 10%;
+  }
+  .error-alert {
+    width: 1141px;
   }
 }
 @media (max-width: 320px) {

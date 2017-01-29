@@ -110,8 +110,8 @@ angular.module('clientApp')
         $scope.isRouteSearching = true;
         $http({
         	method : 'GET',
-        	// url : 'api/y_transit_info?from=' + params.from + '&' + 'to=' + params.to + '&' + 'via1=' + params.via1 + '&' + 'ticket=' + params.ticket_type,
-        	url : 'http://localhost:3000/api/y_transit_info?from=' + params.from + '&' + 'to=' + params.to + '&' + 'via1=' + params.via1 + '&' + 'ticket=' + params.ticket_type,
+        	url : 'api/y_transit_info?from=' + params.from + '&' + 'to=' + params.to + '&' + 'via1=' + params.via1 + '&' + 'ticket=' + params.ticket_type,
+        	// url : 'http://localhost:3000/api/y_transit_info?from=' + params.from + '&' + 'to=' + params.to + '&' + 'via1=' + params.via1 + '&' + 'ticket=' + params.ticket_type,
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
           }
@@ -168,7 +168,7 @@ angular.module('clientApp')
 
     var clientCheck = function() {
       if ($scope.application.use_date == null) {
-        $scope.errors.push('利用日付は必須です。')
+        $scope.errors.push('利用日は必須です。')
       }
       if (!$scope.application.departure_place.length) {
         $scope.errors.push('出発駅／出発地は必須です。')
@@ -177,10 +177,10 @@ angular.module('clientApp')
         $scope.errors.push('到着駅／到着地は必須です。')
       }
       if (!$scope.application.fare.length) {
-        $scope.errors.push('金額は必須です。')
+        $scope.errors.push('料金は必須です。')
       }
       if ($scope.application.fare.length && $scope.application.fare <= 0) {
-        $scope.errors.push('金額に0円は入力できません。')
+        $scope.errors.push('料金に0円は入力できません。')
       }
     }
 
