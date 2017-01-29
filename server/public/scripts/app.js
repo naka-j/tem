@@ -20,8 +20,8 @@ angular
   ])
 
   .config(function ($routeProvider, $httpProvider, RestangularProvider) {
-    // RestangularProvider.setBaseUrl('http://localhost:3000/api')
-    RestangularProvider.setBaseUrl('https://travel-ex.herokuapp.com/api')
+    RestangularProvider.setBaseUrl('http://localhost:3000/api')
+    // RestangularProvider.setBaseUrl('https://travel-ex.herokuapp.com/api')
     $routeProvider
       .when('/', {
         redirectTo: '/application/new'

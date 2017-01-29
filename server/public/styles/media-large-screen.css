@@ -10,6 +10,27 @@
   .nav-login.nav-menu.ng-hide {
     display: none!important;
   }
+
+  .form-card {
+    width: 750px;
+  }
+  .col-sm-offset-3 {
+    margin: 0;
+  }
+
+  .transportation-form .content {
+    width: 75%;
+    margin: auto;
+  }
+  .transportation-form .content  li {
+    padding-left: 6.5%;
+    padding-right: 6.5%;
+  }
+
+  .payment-form .content {
+    width: 55%;
+    margin: auto;
+  }
 }
 
 @media (min-width: 769px) {
@@ -26,11 +47,27 @@
   .list-header, .list-footer {
     width: 970px;
   }
+
+  .form-card {
+    width: 970px;
+  }
+  .transportation-form .content  li {
+    padding-left: 9%;
+    padding-right: 9%;
+  }
 }
 
 @media (min-width: 1200px) {
   .list-header, .list-footer {
       width: 1170px;
+  }
+
+  .form-card {
+    width: 1170px;
+  }
+  .transportation-form .content  li {
+    padding-left: 10%;
+    padding-right: 10%;
   }
 }
 @media (max-width: 320px) {
