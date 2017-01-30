@@ -62,6 +62,7 @@
 }
 
 .question-url{
+  background-color: #ffc;
   border: 1px #ccc solid;
   border-radius: 8px;
   margin: 0 2px;

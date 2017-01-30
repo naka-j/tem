@@ -32,7 +32,7 @@ angular.module('clientApp')
       $scope.navbarOpened = !$scope.navbarOpened;
     }
 
-    $scope.user_name = function() {
+    $scope.userName = function() {
       return $localStorage.user_name
     }
   });
