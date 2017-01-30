@@ -107,6 +107,7 @@ angular.module('clientApp')
           && params.via1 == lastCheckParams.via1) {
           return;
         }
+        $scope.noRoute = false;
         $scope.isRouteSearching = true;
         $http({
         	method : 'GET',
