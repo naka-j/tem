@@ -47,7 +47,7 @@
 
         	<div class="navbar-collapse nav-menu" ng-class="{'nav-login': navLogin}" ng-show="navbarOpened">
         		<ul class="nav navbar-nav navbar-right">
-              <li><p class="text-right text-success user-name m0"><i class="material-icons md-18">account_circle</i>{{user_name()}}</p></li>
+              <li class="text-success text-right"><a><span class="material-icons md-18">account_circle</span><span class="user-name" ng-bind="userName()"></span></a></li>
               <li><a ng-href='/#/application/new' ng-click="closeNavbar()">新規</a></li>
               <li><a ng-href='/#/applications' ng-click="closeNavbar()">一覧</a></li>
               <li><a hg-href='/#/login' ng-click='doLogout();closeNavbar();'>ログアウト</a></li>

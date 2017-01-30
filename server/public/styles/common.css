@@ -47,6 +47,16 @@ nav {
   height: 0;
 }
 
+.nav.navbar-nav > li > p {
+  line-height: 50px;
+  font-weight: 400;
+  font-size: 12px;
+  border-radius: 3px;
+}
+.nav.navbar-nav > li > i {
+
+}
+
 .wrapper {
   padding-top: 70px;
 }
