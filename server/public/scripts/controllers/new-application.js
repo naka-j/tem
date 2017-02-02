@@ -40,7 +40,6 @@ angular.module('clientApp')
         manual_input_flag: false,
         purpose: ''
       }
-      $scope.noRoute = true;
       $scope.routeActivePanel = 0;
 
       if ($cookies.get('never-show-help')) {
@@ -90,60 +89,80 @@ angular.module('clientApp')
       } else {
         $scope.application.purpose_view = $scope.application.purpose
       }
+    }
 
+    $scope.searchRoute = function() {
+      $scope.routeErrors = [];
+      if (!($scope.application.departure_place && $scope.application.arrival_place && $scope.application.traffic_type == "1" && $scope.application.ticket_type)) {
+        $scope.routeErrors.push("ルート候補検索には出発駅、到着駅の入力が必須です。")
+        return;
+      }
+      $scope.openRouteForm = true;
+      var from = $scope.application.departure_place + "駅"
+      var to = $scope.application.arrival_place + "駅"
+      var via1 = "";
+      if ($scope.application.via_place1) {
+        via1 = $scope.application.via_place1 + "駅"
+      }
+      var params = {from: from, to: to, via1: via1, ticket_type: $scope.application.ticket_type}
+      // 条件に変更がない場合は取得しにいかない
+      if (params.from == lastCheckParams.from
+        && params.to == lastCheckParams.to
+        && params.ticket_type == lastCheckParams.ticket_type
+        && params.via1 == lastCheckParams.via1) {
+        return;
+      }
 
-      if ($scope.application.departure_place && $scope.application.arrival_place && $scope.application.traffic_type == "1" && $scope.application.ticket_type) {
-        var from = $scope.application.departure_place + "駅"
-        var to = $scope.application.arrival_place + "駅"
-        var via1 = "";
-        if ($scope.application.via_place1) {
-          via1 = $scope.application.via_place1 + "駅"
+      $scope.isRouteSearching = true;
+      $http({
+      	method : 'GET',
+      	url : 'api/y_transit_info?from=' + params.from + '&' + 'to=' + params.to + '&' + 'via1=' + params.via1 + '&' + 'ticket=' + params.ticket_type,
+      	// url : 'http://localhost:3000/api/y_transit_info?from=' + params.from + '&' + 'to=' + params.to + '&' + 'via1=' + params.via1 + '&' + 'ticket=' + params.ticket_type,
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
         }
-        var params = {from: from, to: to, via1: via1, ticket_type: $scope.application.ticket_type}
-        // 条件に変更がない場合は取得しにいかない
-        if (params.from == lastCheckParams.from
-          && params.to == lastCheckParams.to
-          && params.ticket_type == lastCheckParams.ticket_type
-          && params.via1 == lastCheckParams.via1) {
+      }).success(function (response) {
+        // If successful we assign the response to the global user model
+        if (!response.success || response.routes.length < 1) {
           return;
         }
-        $scope.noRoute = false;
-        $scope.isRouteSearching = true;
-        $http({
-        	method : 'GET',
-        	url : 'api/y_transit_info?from=' + params.from + '&' + 'to=' + params.to + '&' + 'via1=' + params.via1 + '&' + 'ticket=' + params.ticket_type,
-        	// url : 'http://localhost:3000/api/y_transit_info?from=' + params.from + '&' + 'to=' + params.to + '&' + 'via1=' + params.via1 + '&' + 'ticket=' + params.ticket_type,
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          }
-        }).success(function (response) {
-          // If successful we assign the response to the global user model
-          if (!response.success || response.routes.length < 1) {
-            return;
-          }
-          $scope.routes_info = response.routes;
-          if (response.routes[0] == undefined) {
-            $scope.noRoute = true;
-            $scope.application.fare = 0;
-          } else {
-            $scope.noRoute = false;
-            $scope.application.fare = response.routes[0].fare;
-          }
-          lastCheckParams = params
-          $scope.isRouteSearching = false;
-        }).error(function (response, status) {
-          if (status == -1) {
-            $scope.routeErrors.push("エラーが発生しました。");
-          }
-          $scope.isRouteSearching = false;
-        });
+        $scope.routes_info = response.routes;
+        if (response.routes[0] == undefined) {
+          $scope.closeRouteForm()
+          $scope.routeErrors.push("ルート候補を自動で取得できなかったので、手動で入力をお願いします。")
+        } else {
+          // $scope.application.fare = response.routes[0].fare;
+        }
+        lastCheckParams = params
+        $scope.isRouteSearching = false;
+      }).error(function (response, status) {
+        if (status == -1) {
+          $scope.routeErrors.push("エラーが発生しました。");
+        }
+        $scope.isRouteSearching = false;
+      });
+
+    }
+
+    $scope.selectRoute = function() {
+      if ($scope.routes_info[0] != undefined) {
+        $scope.application.fare = $scope.routes_info[$scope.routeActivePanel].fare
       }
+      $scope.closeRouteForm()
+    }
+
+    $scope.closeRouteForm = function() {
+      $scope.openRouteForm = false;
     }
 
     // ルート選択
     $scope.changeActivePanel = function(index, fare) {
       $scope.routeActivePanel = index;
-      $scope.application.fare = fare;
+      // $scope.application.fare = fare;
+    }
+
+    $scope.clearRouteErrors = function() {
+      $scope.routeErrors = [];
     }
 
     $scope.saveApplication = function() {

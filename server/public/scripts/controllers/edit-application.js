@@ -70,7 +70,10 @@ angular.module('clientApp')
         } else {
           $scope.application.purpose_view = $scope.application.purpose
         }
+      }
 
+      $scope.searchRoute = function() {
+        $scope.openRouteForm = true;
         if ($scope.application.departure_place && $scope.application.arrival_place && $scope.application.traffic_type == "1" && $scope.application.ticket_type) {
           var from = $scope.application.departure_place + "駅"
           var to = $scope.application.arrival_place + "駅"

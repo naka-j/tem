@@ -13,7 +13,6 @@
           <li data-target="#carousel-form" data-slide-to="5"></li>
           <li data-target="#carousel-form" data-slide-to="6"></li>
           <li data-target="#carousel-form" data-slide-to="7"></li>
-          <li data-target="#carousel-form" data-slide-to="8"></li>
         </ol>
         <div class="help-back-view" ng-show="helping"></div>
         <div class="help-view" ng-show="helping">
@@ -58,20 +57,19 @@
           <div class="item">
             <ng-include src="'views/application-forms/payment.html'"></ng-include>
           </div>
-          <div class="item form-route">
-            <ng-include src="'views/application-forms/4_route.html'"></ng-include>
-          </div>
           <div class="item">
             <ng-include src="'views/application-forms/fare.html'"></ng-include>
           </div>
-
         </div>
 
-
-        <div class="confirm-back-view" ng-show="confirming"></div>
+        <div class="confirm-back-view" ng-show="confirming || openRouteForm"></div>
         <div class="confirm-view" ng-show="confirming">
           <ng-include src="'views/application-forms/confirm.html'"></ng-include>
         </div>
+        <div class="form-route" ng-show="openRouteForm">
+          <ng-include src="'views/application-forms/4_route.html'"></ng-include>
+        </div>
+
         <!-- Controls -->
         <div class="container">
           <div class="row button-area" ng-class="{'button-area-input': inputMode}">
