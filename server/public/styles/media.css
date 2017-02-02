@@ -45,6 +45,10 @@
   .button-area-input {
     bottom: 1vh;
   }
+
+  .confirm-button-area {
+    bottom: -20px;
+  }
 }
 
 @media (min-width: 992px) {
@@ -63,6 +67,10 @@
   .error-alert {
     width: 941px;
   }
+
+  .confirm-button-area {
+    bottom: -40px;
+  }
 }
 
 @media (min-width: 1200px) {
@@ -79,6 +87,10 @@
   }
   .error-alert {
     width: 1141px;
+  }
+
+  .confirm-button-area {
+    bottom: -60px;
   }
 }
 @media (max-width: 320px) {
@@ -124,12 +136,16 @@
     margin-right: 5px;
   }
 
+  .confirm-button-area {
+    bottom: 0;
+  }
+
   .via-place-row {
     display: none;
   }
 
   .card .content {
-    padding: 0 10px;
+    padding: 0;
   }
 
   .nav-pills > li > a {
@@ -147,4 +163,5 @@
   .route-panel {
     height: 18vh;
   }
+
 }
