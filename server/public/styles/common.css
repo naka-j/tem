@@ -20,7 +20,7 @@ nav {
 }
 
 .navbar.navbar-transparent {
-  background-color: rgba(0, 0, 0, 0.6)!important;
+  background-color: rgba(0, 0, 0, 0.8)!important;
 }
 
 .nav-menu {
@@ -53,8 +53,8 @@ nav {
   font-size: 12px;
   border-radius: 3px;
 }
-.nav.navbar-nav > li > i {
-
+.nav.navbar-nav > li > a {
+  font-size: 14px;
 }
 
 .wrapper {
